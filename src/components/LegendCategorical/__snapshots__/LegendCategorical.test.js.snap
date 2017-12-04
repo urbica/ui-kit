@@ -57,9 +57,6 @@ exports[`Legend does not crash 1`] = `
   >
     900
   </Styled(div)>
-  <Styled(div)>
-    и более
-  </Styled(div)>
 </Styled(div)>
 `;
 
