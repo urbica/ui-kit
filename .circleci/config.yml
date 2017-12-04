@@ -20,6 +20,7 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
+      - run: yarn global add codecov
 
       - save_cache:
           paths:
@@ -28,6 +29,7 @@ jobs:
 
       # run tests!
       - run: yarn lint
-      # - run: yarn typecheck
       - run: yarn test
-      # - run: yarn coverage
+      - run: yarn test:coverage && codecov
+      # - run: yarn typecheck
+      # - run: yarn typecheck:coverage

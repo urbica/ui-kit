@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "description": "Urbica UI Kit",
   "author": "Stepan Kuzmin <stepan@urbica.co>",
-  "contributors": [
-    "Stepan Kuzmin <stepan@urbica.co>"
-  ],
+  "contributors": ["Stepan Kuzmin <stepan@urbica.co>"],
   "repository": "git@github.com:urbica/ui-kit.git",
   "license": "MIT",
   "main": "dist/ui-kit.js",
@@ -13,8 +11,9 @@
     "start": "npm run styleguide",
     "lint": "eslint src test",
     "typecheck": "flow check src",
+    "typecheck:coverage": "flow-coverage-report -i 'src/**/*.js' -t html",
     "test": "jest",
-    "coverage": "flow-coverage-report -i 'src/**/*.js' -t html",
+    "test:coverage": "jest --coverage",
     "build": "webpack -p --config webpack.config.js",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
@@ -25,9 +24,7 @@
     "postpublish": "npm run styleguide:build && npm run styleguide:deploy"
   },
   "jest": {
-    "setupFiles": [
-      "<rootDir>/jest.setup.js"
-    ]
+    "setupFiles": ["<rootDir>/jest.setup.js"]
   },
   "config": {
     "commitizen": {
