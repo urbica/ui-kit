@@ -1,5 +1,7 @@
 # Urbica UI Kit
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/urbica/ui-kit.svg)](https://greenkeeper.io/)
+
 [![Circle CI build status](https://circleci.com/gh/urbica/ui-kit.svg?style=shield)](https://circleci.com/gh/urbica/ui-kit/tree/master)
 [![codecov](https://codecov.io/gh/urbica/ui-kit/branch/master/graph/badge.svg)](https://codecov.io/gh/urbica/ui-kit)
 
