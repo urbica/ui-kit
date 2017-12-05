@@ -13,6 +13,11 @@ test('Slider does not crash', () => {
   expect(toJson(wrapper)).toMatchSnapshot();
 });
 
+test('Slider with an empty array', () => {
+  expect(() => shallow(<Slider onChange={onChange} options={[]} />))
+    .toThrowError('options is empty');
+});
+
 test('Slider simulate onChange', () => {
   const wrapper = shallow(<Slider onChange={onChange} options={options} value={options[0]} />);
   const rangeInput = wrapper.find('input').first();

@@ -24,6 +24,11 @@ class Slider extends PureComponent {
 
   componentWillMount() {
     const { options, value } = this.props;
+
+    if (!options.length) {
+      throw new Error('options is empty');
+    }
+
     const index = options.indexOf(value);
     this.setState({ index });
   }
@@ -51,10 +56,6 @@ class Slider extends PureComponent {
 
   render() {
     const { options } = this.props;
-
-    if (!options.length) {
-      throw new Error('options is empty');
-    }
 
     return (
       <Container>
