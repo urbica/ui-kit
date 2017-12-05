@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider does not crash 1`] = `
+<Styled(div)>
+  <input
+    max={2}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    step={0.01}
+    type="range"
+    value={-1}
+  />
+  <Styled(div)
+    length={3}
+  >
+    <Styled(div)
+      index={0}
+      onClick={[Function]}
+      role="button"
+    >
+      <span />
+    </Styled(div)>
+    <Styled(div)
+      index={1}
+      onClick={[Function]}
+      role="button"
+    >
+      <span />
+    </Styled(div)>
+    <Styled(div)
+      index={2}
+      onClick={[Function]}
+      role="button"
+    >
+      <span />
+    </Styled(div)>
+  </Styled(div)>
+</Styled(div)>
+`;
+
+exports[`Slider with an empty array 1`] = `""`;

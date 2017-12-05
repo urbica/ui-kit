@@ -91,7 +91,10 @@ Slider.propTypes = {
     value: PropTypes.node.isRequired,
     label: PropTypes.node
   })),
-  value: PropTypes.node,
+  value: PropTypes.shape({
+    value: PropTypes.node.isRequired,
+    label: PropTypes.node
+  }),
   onChange: PropTypes.func.isRequired
 };
 
