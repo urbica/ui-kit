@@ -8,7 +8,12 @@ const options = [
 ];
 const onChange = value => value;
 
-test('Button does not crash', () => {
+test('Slider does not crash', () => {
   const tree = shallow(<Slider onChange={onChange} options={options} />);
+  expect(toJson(tree)).toMatchSnapshot();
+});
+
+test('Slider with an empty array', () => {
+  const tree = shallow(<Slider onChange={onChange} options={[]} />);
   expect(toJson(tree)).toMatchSnapshot();
 });
