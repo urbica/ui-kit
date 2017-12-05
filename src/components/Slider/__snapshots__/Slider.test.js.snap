@@ -14,21 +14,18 @@ exports[`Slider does not crash 1`] = `
     length={3}
   >
     <Styled(div)
-      index={0}
       onClick={[Function]}
       role="button"
     >
       <span />
     </Styled(div)>
     <Styled(div)
-      index={1}
       onClick={[Function]}
       role="button"
     >
       <span />
     </Styled(div)>
     <Styled(div)
-      index={2}
       onClick={[Function]}
       role="button"
     >

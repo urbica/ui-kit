@@ -43,10 +43,9 @@ class Slider extends Component {
     this.setState({ value: index });
   }
 
-  onClickScale(event) {
-    const { index } = event.currentTarget;
-    const option = this.props.options[index];
+  onClickScale(index) {
     this.setState({ value: index });
+    const option = this.props.options[index];
     this.props.onChange(option);
   }
 
@@ -71,10 +70,9 @@ class Slider extends Component {
           {
             options.map((option, index) => (
               <Label
-                index={index}
                 key={option.value}
                 role="button"
-                onClick={this.onClickScale}
+                onClick={this.onClickScale.bind(null, index)}
               >
                 <span>{option.label}</span>
               </Label>

@@ -9,11 +9,36 @@ const options = [
 const onChange = value => value;
 
 test('Slider does not crash', () => {
-  const tree = shallow(<Slider onChange={onChange} options={options} />);
-  expect(toJson(tree)).toMatchSnapshot();
+  const wrapper = shallow(<Slider onChange={onChange} options={options} />);
+  expect(toJson(wrapper)).toMatchSnapshot();
 });
 
 test('Slider with an empty array', () => {
-  const tree = shallow(<Slider onChange={onChange} options={[]} />);
-  expect(toJson(tree)).toMatchSnapshot();
+  const wrapper = shallow(<Slider onChange={onChange} options={[]} />);
+  expect(toJson(wrapper)).toMatchSnapshot();
+});
+
+test('Slider simulate onChange', () => {
+  const wrapper = shallow(<Slider onChange={onChange} options={options} value={options[0]} />);
+  const rangeInput = wrapper.find('input').first();
+  expect(wrapper.state('value')).toEqual(0);
+  rangeInput.simulate('change', { target: { value: 1 } });
+  expect(wrapper.state('value')).toEqual(1);
+});
+
+test('Slider simulate onChangeEnd', () => {
+  const wrapper = shallow(<Slider onChange={onChange} options={options} value={options[0]} />);
+  const rangeInput = wrapper.find('input').first();
+  expect(wrapper.state('value')).toEqual(0);
+  rangeInput.simulate('change', { target: { value: 0.8 } });
+  rangeInput.simulate('mouseUp', { target: { value: 0.8 } });
+  expect(wrapper.state('value')).toEqual(1);
+});
+
+test('Slider simulate onClickScale', () => {
+  const wrapper = shallow(<Slider onChange={onChange} options={options} value={options[0]} />);
+  const scaleButton = wrapper.find('[role="button"]').last();
+  expect(wrapper.state('value')).toEqual(0);
+  scaleButton.simulate('click');
+  expect(wrapper.state('value')).toEqual(2);
 });
