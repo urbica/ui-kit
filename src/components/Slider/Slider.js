@@ -32,6 +32,7 @@ class Slider extends Component {
     this.setState({ value: event.target.value });
     const index = Math.round(event.target.value);
     const option = this.props.options[index];
+
     if (option !== this.props.value) {
       this.props.onChange(option);
     }
@@ -43,9 +44,9 @@ class Slider extends Component {
   }
 
   onClickScale(event) {
-    const index = event.currentTarget.index;
-    this.setState({ value: index });
+    const { index } = event.currentTarget;
     const option = this.props.options[index];
+    this.setState({ value: index });
     this.props.onChange(option);
   }
 
