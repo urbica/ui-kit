@@ -17,6 +17,7 @@ const LegendCategorical = ({ values }) => {
   }
 
   const width = 100 / (values.length);
+
   return (
     <Container>
       {

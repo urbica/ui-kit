@@ -18,6 +18,7 @@ const LegendInterval = ({ values, lastValue }) => {
   }
 
   const width = 100 / (values.length);
+
   return (
     <Container>
       {
