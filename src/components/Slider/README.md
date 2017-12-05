@@ -1,7 +1,7 @@
 Button
 
 ```js
-initialState = { index: 0 };
+initialState = { value: 'one', label: 'One' };
 
 const options = [
   { value: 'one', label: 'One' },
@@ -10,16 +10,15 @@ const options = [
 ];
 
 const onChange = (value) => {
-  const index = options.indexOf(value);
-  setState({ index })
+  setState(value)
 };
 
 <div>
-  Current value: {options[state.index].value}
+  Current value: {state.value}
   <Slider
     onChange={onChange}
     options={options}
-    value={options[state.index]}
+    value={state}
   />
 </div>
 ```

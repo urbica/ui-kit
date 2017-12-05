@@ -34,5 +34,3 @@ exports[`Slider does not crash 1`] = `
   </Styled(div)>
 </Styled(div)>
 `;
-
-exports[`Slider with an empty array 1`] = `""`;

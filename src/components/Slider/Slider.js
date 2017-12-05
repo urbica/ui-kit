@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // Style
@@ -9,27 +9,27 @@ import Label from './Label';
 /**
  * @component
  */
-class Slider extends Component {
+class Slider extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      value: 0
+      index: 0
     };
 
     this.onChange = this.onChange.bind(this);
     this.onChangeEnd = this.onChangeEnd.bind(this);
-    this.onClickScale = this.onClickScale.bind(this);
+    this.onScaleClick = this.onScaleClick.bind(this);
   }
 
   componentWillMount() {
     const { options, value } = this.props;
     const index = options.indexOf(value);
-    this.setState({ value: index });
+    this.setState({ index });
   }
 
   onChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ index: event.target.value });
     const index = Math.round(event.target.value);
     const option = this.props.options[index];
 
@@ -40,11 +40,11 @@ class Slider extends Component {
 
   onChangeEnd(event) {
     const index = Math.round(event.target.value);
-    this.setState({ value: index });
+    this.setState({ index });
   }
 
-  onClickScale(index) {
-    this.setState({ value: index });
+  onScaleClick(index) {
+    this.setState({ index });
     const option = this.props.options[index];
     this.props.onChange(option);
   }
@@ -53,14 +53,14 @@ class Slider extends Component {
     const { options } = this.props;
 
     if (!options.length) {
-      return null;
+      throw new Error('options is empty');
     }
 
     return (
       <Container>
         <input
           type="range"
-          value={this.state.value}
+          value={this.state.index}
           onChange={this.onChange}
           onMouseUp={this.onChangeEnd}
           max={options.length - 1}
@@ -72,7 +72,7 @@ class Slider extends Component {
               <Label
                 key={option.value}
                 role="button"
-                onClick={this.onClickScale.bind(null, index)}
+                onClick={this.onScaleClick.bind(null, index)}
               >
                 <span>{option.label}</span>
               </Label>
@@ -88,7 +88,7 @@ Slider.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.node.isRequired,
     label: PropTypes.node
-  })),
+  })).isRequired,
   value: PropTypes.shape({
     value: PropTypes.node.isRequired,
     label: PropTypes.node
@@ -97,7 +97,6 @@ Slider.propTypes = {
 };
 
 Slider.defaultProps = {
-  options: [],
   value: PropTypes.null
 };
 
