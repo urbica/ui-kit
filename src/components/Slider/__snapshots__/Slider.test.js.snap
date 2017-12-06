@@ -2,7 +2,7 @@
 
 exports[`Slider does not crash 1`] = `
 <Styled(div)>
-  <input
+  <Styled(input)
     max={2}
     onChange={[Function]}
     onMouseUp={[Function]}
@@ -14,22 +14,31 @@ exports[`Slider does not crash 1`] = `
     length={3}
   >
     <Styled(div)
+      key="one"
       onClick={[Function]}
       role="button"
     >
-      <span />
+      <span>
+        One
+      </span>
     </Styled(div)>
     <Styled(div)
+      key="two"
       onClick={[Function]}
       role="button"
     >
-      <span />
+      <span>
+        Two
+      </span>
     </Styled(div)>
     <Styled(div)
+      key="three"
       onClick={[Function]}
       role="button"
     >
-      <span />
+      <span>
+        Three
+      </span>
     </Styled(div)>
   </Styled(div)>
 </Styled(div)>

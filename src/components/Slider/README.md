@@ -1,16 +1,16 @@
 Slider
 
 ```js
-initialState = { value: 'one', label: 'One' };
-
 const options = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
   { value: 'three', label: 'Three' }
 ];
 
+initialState = { value: options[0].value };
+
 const onChange = (value) => {
-  setState(value)
+  setState({ value })
 };
 
 <div>
@@ -18,7 +18,7 @@ const onChange = (value) => {
   <Slider
     onChange={onChange}
     options={options}
-    value={state}
+    value={state.value}
   />
 </div>
 ```

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Container from './Container';
 import Scale from './Scale';
 import Label from './Label';
+import Input from './Input';
 
 /**
  * @component
@@ -29,17 +30,17 @@ class Slider extends PureComponent {
       throw new Error('options is empty');
     }
 
-    const index = options.indexOf(value);
+    const index = options.findIndex(o => o.value === value);
     this.setState({ index });
   }
 
   onChange(event) {
     this.setState({ index: event.target.value });
     const index = Math.round(event.target.value);
-    const option = this.props.options[index];
+    const { value } = this.props.options[index];
 
-    if (option !== this.props.value) {
-      this.props.onChange(option);
+    if (value !== this.props.value) {
+      this.props.onChange(value);
     }
   }
 
@@ -50,8 +51,8 @@ class Slider extends PureComponent {
 
   onScaleClick(index) {
     this.setState({ index });
-    const option = this.props.options[index];
-    this.props.onChange(option);
+    const { value } = this.props.options[index];
+    this.props.onChange(value);
   }
 
   render() {
@@ -59,7 +60,7 @@ class Slider extends PureComponent {
 
     return (
       <Container>
-        <input
+        <Input
           type="range"
           value={this.state.index}
           onChange={this.onChange}
@@ -90,10 +91,7 @@ Slider.propTypes = {
     value: PropTypes.node.isRequired,
     label: PropTypes.node
   })).isRequired,
-  value: PropTypes.shape({
-    value: PropTypes.node.isRequired,
-    label: PropTypes.node
-  }),
+  value: PropTypes.node,
   onChange: PropTypes.func.isRequired
 };
 

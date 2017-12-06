@@ -2,10 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Slider from '../Slider';
+import Input from '../Slider/Input';
 
 const options = [
-  { name: '1990', value: [] }, { name: '2000', value: [] }, { name: '2010', value: [] }
+  { value: 'one', label: 'One' },
+  { value: 'two', label: 'Two' },
+  { value: 'three', label: 'Three' }
 ];
+
 const onChange = value => value;
 
 test('Slider does not crash', () => {
@@ -19,24 +23,36 @@ test('Slider with an empty array', () => {
 });
 
 test('Slider simulate onChange', () => {
-  const wrapper = shallow(<Slider onChange={onChange} options={options} value={options[0]} />);
-  const rangeInput = wrapper.find('input').first();
+  const wrapper = shallow(<Slider
+    onChange={onChange}
+    options={options}
+    value={options[0].value}
+  />);
+  const rangeInput = wrapper.find(Input).first();
   expect(wrapper.state('index')).toEqual(0);
   rangeInput.simulate('change', { target: { value: 1 } });
   expect(wrapper.state('index')).toEqual(1);
 });
 
 test('Slider simulate onChangeEnd', () => {
-  const wrapper = shallow(<Slider onChange={onChange} options={options} value={options[0]} />);
-  const rangeInput = wrapper.find('input').first();
+  const wrapper = shallow(<Slider
+    onChange={onChange}
+    options={options}
+    value={options[0].value}
+  />);
+  const rangeInput = wrapper.find(Input).first();
   expect(wrapper.state('index')).toEqual(0);
-  rangeInput.simulate('index', { target: { value: 0.8 } });
+  rangeInput.simulate('change', { target: { value: 0.8 } });
   rangeInput.simulate('mouseUp', { target: { value: 0.8 } });
   expect(wrapper.state('index')).toEqual(1);
 });
 
 test('Slider simulate onClickScale', () => {
-  const wrapper = shallow(<Slider onChange={onChange} options={options} value={options[0]} />);
+  const wrapper = shallow(<Slider
+    onChange={onChange}
+    options={options}
+    value={options[0].value}
+  />);
   const scaleButton = wrapper.find('[role="button"]').last();
   expect(wrapper.state('index')).toEqual(0);
   scaleButton.simulate('click');
