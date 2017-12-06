@@ -1,4 +1,4 @@
-Button
+Slider
 
 ```js
 initialState = { value: 'one', label: 'One' };
