@@ -21,6 +21,7 @@ class Slider extends PureComponent {
     this.onChange = this.onChange.bind(this);
     this.onChangeEnd = this.onChangeEnd.bind(this);
     this.onScaleClick = this.onScaleClick.bind(this);
+    this._renderOption = this._renderOption.bind(this);
   }
 
   componentWillMount() {
@@ -55,6 +56,18 @@ class Slider extends PureComponent {
     this.props.onChange(value);
   }
 
+  _renderOption(option, index) {
+    return (
+      <Label
+        key={option.value}
+        role="button"
+        onClick={this.onScaleClick.bind(null, index)}
+      >
+        <span>{option.label}</span>
+      </Label>
+    );
+  }
+
   render() {
     const { options } = this.props;
 
@@ -69,17 +82,7 @@ class Slider extends PureComponent {
           step={0.01}
         />
         <Scale length={options.length}>
-          {
-            options.map((option, index) => (
-              <Label
-                key={option.value}
-                role="button"
-                onClick={this.onScaleClick.bind(null, index)}
-              >
-                <span>{option.label}</span>
-              </Label>
-            ))
-          }
+          {options.map(this._renderOption)}
         </Scale>
       </Container>
     );
