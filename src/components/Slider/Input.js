@@ -3,7 +3,12 @@ import styled from 'react-emotion';
 export default styled.input`
   width: 100%;
   height: 34px;
+  margin: 0;
    -webkit-appearance: none;
+   
+  &::-moz-focus-outer {
+    border: 0;
+  }
 
   &::-webkit-slider-runnable-track {
       height: 2px;
@@ -57,10 +62,6 @@ export default styled.input`
   &:-moz-focusring{
       outline: 1px solid white;
       outline-offset: -1px;
-  }
-  
-  &:focus::-moz-range-track {
-      background: transparent;
   }
   
   &::-ms-track {

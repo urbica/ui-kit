@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import findIndex from '../../utils/findIndex';
 
 // Style
 import Container from './Container';
@@ -31,12 +32,14 @@ class Slider extends PureComponent {
       throw new Error('options is empty');
     }
 
-    const index = options.findIndex(o => o.value === value);
+    const index = findIndex(options, o => o.value === value);
+
     this.setState({ index });
   }
 
   onChange(event) {
     this.setState({ index: event.target.value });
+
     const index = Math.round(event.target.value);
     const { value } = this.props.options[index];
 
@@ -45,8 +48,8 @@ class Slider extends PureComponent {
     }
   }
 
-  onChangeEnd(event) {
-    const index = Math.round(event.target.value);
+  onChangeEnd() {
+    const index = Math.round(this.state.index);
     this.setState({ index });
   }
 
@@ -77,7 +80,7 @@ class Slider extends PureComponent {
           type="range"
           value={this.state.index}
           onChange={this.onChange}
-          onMouseUp={this.onChangeEnd}
+          onClick={this.onChangeEnd}
           max={options.length - 1}
           step={0.01}
         />
