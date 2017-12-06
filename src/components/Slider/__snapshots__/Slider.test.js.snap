@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider does not crash 1`] = `
+<Styled(div)>
+  <Styled(input)
+    max={2}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    step={0.01}
+    type="range"
+    value={-1}
+  />
+  <Styled(div)
+    length={3}
+  >
+    <Styled(div)
+      key="one"
+      onClick={[Function]}
+      role="button"
+    >
+      <span>
+        One
+      </span>
+    </Styled(div)>
+    <Styled(div)
+      key="two"
+      onClick={[Function]}
+      role="button"
+    >
+      <span>
+        Two
+      </span>
+    </Styled(div)>
+    <Styled(div)
+      key="three"
+      onClick={[Function]}
+      role="button"
+    >
+      <span>
+        Three
+      </span>
+    </Styled(div)>
+  </Styled(div)>
+</Styled(div)>
+`;

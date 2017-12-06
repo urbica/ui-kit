@@ -19,6 +19,8 @@
     "import/no-extraneous-dependencies": [
       "error",
       { "devDependencies": true, "peerDependencies": true }
-    ]
+    ],
+    "react/jsx-no-bind": 0,
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }]
   }
 }
