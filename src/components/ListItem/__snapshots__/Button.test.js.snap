@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button does not crash 1`] = `
+<Styled(button)>
+  title
+</Styled(button)>
+`;
