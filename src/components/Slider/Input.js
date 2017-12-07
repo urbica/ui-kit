@@ -6,6 +6,7 @@ export default styled.input`
   margin: 0;
   padding: 0;
   -webkit-appearance: none;
+  background: transparent;
    
   &::-moz-focus-outer {
     border: 0;
