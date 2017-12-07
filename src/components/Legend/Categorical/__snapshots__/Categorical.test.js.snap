@@ -27,19 +27,29 @@ exports[`Legend does not crash 1`] = `
   <Styled(div)>
     <Styled(div)
       key="1"
-    />
+    >
+      0
+    </Styled(div)>
     <Styled(div)
       key="2"
-    />
+    >
+      100
+    </Styled(div)>
     <Styled(div)
       key="3"
-    />
+    >
+      300
+    </Styled(div)>
     <Styled(div)
       key="4"
-    />
+    >
+      600
+    </Styled(div)>
     <Styled(div)
       key="5"
-    />
+    >
+      900
+    </Styled(div)>
   </Styled(div)>
 </div>
 `;
