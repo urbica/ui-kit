@@ -2,3 +2,4 @@
 
 export { default as Button } from './components/Button';
 export { default as Slider } from './components/Slider';
+export { default as LegendCategorical } from './components/Legend/Categorical';
