@@ -8,6 +8,7 @@ const hover = `
 `;
 
 export default styled.div`
+  font-family: 'Noto Sans', sans-serif;
   padding: 15px 20px;
   background-color: ${({ isActive }) => (isActive ? '#f5f4f5' : '#ffffff')};
   border-bottom: 1px solid #ecf1f8;
