@@ -1,6 +1,8 @@
 ListItem
 
 ```js
+initialState = { active: 2 };
+
 const options = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
@@ -13,16 +15,23 @@ const style = {
 };
 
 <div style={style}>
-    <ListItem title={'Плотность населения'} />
+    <ListItem
+      title={'Плотность населения'}
+      isActive={state.active === 0}
+      onClick={() => setState({ active: 0 })}
+    />
     <ListItem
       title={'Удобство для жизни'}
       description={'Доступность инфраструктуры и сервисов в пешеходной доступности жилых домов'}
       units={'km/2'}
+      isActive={state.active === 1}
+      onClick={() => setState({ active: 1 })}
     />
     <ListItem
       title={'Транспортная доступноть (PTAL)'}
       description={'Коэффициент доступности территории на общественном транспорте'}
-      isActive
+      isActive={state.active === 2}
+      onClick={() => setState({ active: 2 })}
     >
       <Slider
         options={options}
