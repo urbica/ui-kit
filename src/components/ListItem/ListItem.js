@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Container from './Container';
 import Title from './Title';
 import Description from './Description';
-import Units from './Units';
 
 /**
  * @component
@@ -15,21 +14,24 @@ const ListItem = (props) => {
     title,
     description,
     units,
-    children
+    children,
+    isActive
   } = props;
 
   return (
-    <Container>
+    <Container isActive={isActive}>
       <Title>{title}</Title>
       {
         description &&
-          <Description>{description}</Description>
+        <Description>
+          {description}
+          {
+            units &&
+            <div>{units}</div>
+          }
+        </Description>
       }
-      {
-        units &&
-          <Units>{units}</Units>
-      }
-      {children}
+      {isActive && children}
     </Container>
   );
 };
@@ -38,10 +40,12 @@ ListItem.propTypes = {
   title: PropTypes.node.isRequired,
   description: PropTypes.node,
   units: PropTypes.node,
+  isActive: PropTypes.bool,
   children: PropTypes.node
 };
 
 ListItem.defaultProps = {
+  isActive: false,
   description: PropTypes.null,
   units: PropTypes.null,
   children: PropTypes.null

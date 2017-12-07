@@ -13,14 +13,21 @@ const style = {
 };
 
 <div style={style}>
+    <ListItem title={'Плотность населения'} />
+    <ListItem
+      title={'Удобство для жизни'}
+      description={'Доступность инфраструктуры и сервисов в пешеходной доступности жилых домов'}
+      units={'km/2'}
+    />
     <ListItem
       title={'Транспортная доступноть (PTAL)'}
       description={'Коэффициент доступности территории на общественном транспорте'}
+      isActive
     >
       <Slider
         options={options}
         onChange={(value) => value}
-        />
+      />
     </ListItem>
 </div>
 ```
