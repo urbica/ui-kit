@@ -81,6 +81,7 @@ class Slider extends PureComponent {
           value={this.state.index}
           onChange={this.onChange}
           onClick={this.onChangeEnd}
+          onTouchEnd={this.onChangeEnd}
           max={options.length - 1}
           step={0.01}
         />
