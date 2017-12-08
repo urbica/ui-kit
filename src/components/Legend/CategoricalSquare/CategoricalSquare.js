@@ -46,6 +46,6 @@ CategoricalSquare.propTypes = {
 
 CategoricalSquare.defaultProps = {
   type: 'vertical'
-}
+};
 
 export default CategoricalSquare;
