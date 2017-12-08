@@ -2,6 +2,6 @@
 
 export { default as Button } from './components/Button';
 export { default as Slider } from './components/Slider';
-export { default as LegendCategorical } from './components/Legend/Categorical';
 export { default as LegendInterval } from './components/Legend/Interval';
-
+export { default as LegendCategoricalSquare } from './components/Legend/CategoricalSquare';
+export { default as LegendCategoricalCircle } from './components/Legend/CategoricalCircleProportional';

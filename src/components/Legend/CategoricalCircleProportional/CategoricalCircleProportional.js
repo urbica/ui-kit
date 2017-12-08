@@ -3,23 +3,19 @@ import PropTypes from 'prop-types';
 
 // styled
 import Row from './Row';
-import Segment from './Segment';
+import Circle from './Circle';
 import Label from './Label';
-import LastLabel from './LastLabel';
 
 /**
  * @component
  */
 
-const renderSegment = ({ id, color }) => <Segment key={id} color={color} />;
-
 const renderLabel = ({ id, label }) => (
   <Label key={id}>
     {label}
-  </Label>
-);
+  </Label>);
 
-const Interval = ({ values, lastValue }) => {
+const CategoricalCircleProportional = ({ values }) => {
   if (!values.length) {
     throw new Error('values is empty');
   }
@@ -27,27 +23,28 @@ const Interval = ({ values, lastValue }) => {
   return (
     <div>
       <Row>
-        { values.map(renderSegment) }
+        { values.map(({ id, color }, i) => (
+          <Circle
+            key={id}
+            color={color}
+            number={i}
+            length={values.length}
+          />))
+        }
       </Row>
       <Row>
         { values.map(renderLabel) }
-        <LastLabel>{lastValue}</LastLabel>
       </Row>
     </div>
   );
 };
 
-Interval.propTypes = {
+CategoricalCircleProportional.propTypes = {
   values: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     color: PropTypes.string,
     label: PropTypes.node
-  })).isRequired,
-  lastValue: PropTypes.node
+  })).isRequired
 };
 
-Interval.defaultProps = {
-  lastValue: null
-};
-
-export default Interval;
+export default CategoricalCircleProportional;

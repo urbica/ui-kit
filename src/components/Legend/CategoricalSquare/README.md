@@ -1,4 +1,4 @@
-LegendInterval
+LegendCategoricalSquare
 
 ```js
 const values = [
@@ -9,8 +9,7 @@ const values = [
     { id: 5, color: '#AAAAAA', label: 400 }
 ];
 
-<Interval
+<CategoricalSquare
     values={values}
-    lastValue={500}
 />
 ```

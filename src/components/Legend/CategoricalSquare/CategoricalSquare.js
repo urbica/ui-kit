@@ -18,7 +18,7 @@ const renderLabel = ({ id, label }) => (
   </Label>
 );
 
-const LegendCategorical = ({ values }) => {
+const CategoricalSquare = ({ values, type }) => {
   if (!values.length) {
     throw new Error('values is empty');
   }
@@ -35,12 +35,17 @@ const LegendCategorical = ({ values }) => {
   );
 };
 
-LegendCategorical.propTypes = {
+CategoricalSquare.propTypes = {
   values: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     color: PropTypes.string,
     label: PropTypes.node
-  })).isRequired
+  })).isRequired,
+  type: PropTypes.string
 };
 
-export default LegendCategorical;
+CategoricalSquare.defaultProps = {
+  type: 'vertical'
+}
+
+export default CategoricalSquare;
