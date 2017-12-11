@@ -18,7 +18,7 @@ const renderLabel = ({ id, label }) => (
   </Label>
 );
 
-const CategoricalSquare = ({ values, type }) => {
+const CategoricalHorizontal = ({ values }) => {
   if (!values.length) {
     throw new Error('values is empty');
   }
@@ -35,17 +35,12 @@ const CategoricalSquare = ({ values, type }) => {
   );
 };
 
-CategoricalSquare.propTypes = {
+CategoricalHorizontal.propTypes = {
   values: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     color: PropTypes.string,
     label: PropTypes.node
-  })).isRequired,
-  type: PropTypes.string
+  })).isRequired
 };
 
-CategoricalSquare.defaultProps = {
-  type: 'vertical'
-};
-
-export default CategoricalSquare;
+export default CategoricalHorizontal;

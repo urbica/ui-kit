@@ -1,4 +1,4 @@
-LegendCategoricalSquare
+LegendCategoricalHorizontal
 
 ```js
 const values = [
@@ -9,7 +9,7 @@ const values = [
     { id: 5, color: '#AAAAAA', label: 400 }
 ];
 
-<CategoricalSquare
+<CategoricalHorizontal
     values={values}
 />
 ```
