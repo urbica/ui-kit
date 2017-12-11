@@ -23,13 +23,15 @@ const CategoricalCircleProportional = ({ values }) => {
   return (
     <div>
       <Row>
-        { values.map(({ id, color }, i) => (
-          <Circle
-            key={id}
-            color={color}
-            number={i}
-            length={values.length}
-          />))
+        {
+          values.map(({ id, color }, i) => (
+            <Circle
+              key={id}
+              color={color}
+              number={i}
+              length={values.length}
+            />
+          ))
         }
       </Row>
       <Row>
