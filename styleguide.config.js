@@ -12,13 +12,8 @@ module.exports = {
       name: 'Components',
       components: () => [
         'src/components/Button/Button.js',
-        'src/components/Slider/Slider.js'
-      ],
-      sections: [
-        {
-          name: 'Legends',
-          components: 'src/components/Legend/**/*.js'
-        }
+        'src/components/Slider/Slider.js',
+        'src/components/Legend/Legend.js'
       ]
     }
   ]

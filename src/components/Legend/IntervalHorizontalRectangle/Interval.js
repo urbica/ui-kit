@@ -1,37 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// styled
 import Row from './Row';
 import Segment from './Segment';
 import Label from './Label';
 import LastLabel from './LastLabel';
 
-/**
- * @component
- */
-
 const renderSegment = ({ id, color }) => <Segment key={id} color={color} />;
 
-const renderLabel = ({ id, label }) => (
-  <Label key={id}>
-    {label}
-  </Label>
-);
+const renderLabel = ({ id, label }) => <Label key={id}>{label}</Label>;
 
-const Interval = ({ values, lastValue }) => {
-  if (!values.length) {
-    throw new Error('values is empty');
-  }
+const Interval = ({ values }) => {
+  const significantValues = values.slice(0, values.length - 1);
+  const lastValue = values[values.length - 1];
 
   return (
     <div>
+      <Row>{significantValues.map(renderSegment)}</Row>
       <Row>
-        { values.map(renderSegment) }
-      </Row>
-      <Row>
-        { values.map(renderLabel) }
-        <LastLabel>{lastValue}</LastLabel>
+        {significantValues.map(renderLabel)}
+        <LastLabel>{lastValue.label}</LastLabel>
       </Row>
     </div>
   );
@@ -42,12 +30,7 @@ Interval.propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     color: PropTypes.string,
     label: PropTypes.node
-  })).isRequired,
-  lastValue: PropTypes.node
-};
-
-Interval.defaultProps = {
-  lastValue: null
+  })).isRequired
 };
 
 export default Interval;
