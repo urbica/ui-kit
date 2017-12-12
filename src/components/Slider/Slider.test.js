@@ -43,7 +43,7 @@ test('Slider simulate onChangeEnd', () => {
   const rangeInput = wrapper.find(Input).first();
   expect(wrapper.state('index')).toEqual(0);
   rangeInput.simulate('change', { target: { value: 0.8 } });
-  rangeInput.simulate('mouseUp', { target: { value: 0.8 } });
+  rangeInput.simulate('click', { target: { value: 0.8 } });
   expect(wrapper.state('index')).toEqual(1);
 });
 
