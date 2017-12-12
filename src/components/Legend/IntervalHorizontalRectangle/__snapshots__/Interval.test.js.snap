@@ -19,10 +19,6 @@ exports[`Legend does not crash 1`] = `
       color="#999999"
       key="4"
     />
-    <Styled(div)
-      color="#AAAAAA"
-      key="5"
-    />
   </Styled(div)>
   <Styled(div)>
     <Styled(div)
@@ -45,12 +41,9 @@ exports[`Legend does not crash 1`] = `
     >
       600
     </Styled(div)>
-    <Styled(div)
-      key="5"
-    >
+    <Styled(div)>
       900
     </Styled(div)>
-    <Styled(div) />
   </Styled(div)>
 </div>
 `;

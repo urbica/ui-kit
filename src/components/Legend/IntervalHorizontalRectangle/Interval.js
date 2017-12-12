@@ -11,6 +11,10 @@ const renderSegment = ({ id, color }) => <Segment key={id} color={color} />;
 const renderLabel = ({ id, label }) => <Label key={id}>{label}</Label>;
 
 const Interval = ({ values }) => {
+  if (!values.length) {
+    throw new Error('values is empty');
+  }
+
   const significantValues = values.slice(0, values.length - 1);
   const lastValue = values[values.length - 1];
 
