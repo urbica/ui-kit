@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { DateUtils } from 'react-day-picker';
 import Calendar from '../Calendar';
 
 // Style
@@ -18,12 +19,13 @@ class DataSelector extends PureComponent {
 
     this.state = {
       isActive: this.props.isActive,
-      startDate: this.props.startDate,
-      endDate: this.props.endDate
+      from: this.props.startDate,
+      to: this.props.endDate
     };
 
     this.onClick = this.onClick.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleDayRangeClick = this.handleDayRangeClick.bind(this);
     this._renderCalendar = this._renderCalendar.bind(this);
     this._renderDate = this._renderDate.bind(this);
   }
@@ -32,18 +34,23 @@ class DataSelector extends PureComponent {
     this.setState({ isActive: !this.state.isActive });
   }
 
-  handleDayClick(day, { selected }) {
+  handleDayClick(day) {
     this.setState({
-      startDate: selected ? this.props.startDate : day
+      from: day
     });
   }
 
-  _renderDate() {
-    const { startDate, endDate } = this.state;
-    const start = startDate.toLocaleString().substring(0, 10);
-    const end = endDate && endDate.toLocaleString().substring(0, 10);
+  handleDayRangeClick(day) {
+    const range = DateUtils.addDayToRange(day, this.state);
+    this.setState(range);
+  }
 
-    if (endDate) {
+  _renderDate() {
+    const { from, to } = this.state;
+    const start = from && from.toLocaleString().substring(0, 10);
+    const end = to && to.toLocaleString().substring(0, 10);
+
+    if (to) {
       return `${start} – ${end}`;
     }
 
@@ -51,14 +58,30 @@ class DataSelector extends PureComponent {
   }
 
   _renderCalendar() {
-    const { startDate, endDate } = this.state;
+    const { from, to } = this.state;
+    const { multiple } = this.props;
+    const modifiers = { start: from, end: to };
 
     return (
-      <CalendarContainer onClick={e => e.stopPropagation()}>
-        <Calendar
-          selectedDays={startDate}
-          onDayClick={this.handleDayClick}
-        />
+      <CalendarContainer
+        onClick={e => e.stopPropagation()}
+        multiple={multiple}
+      >
+        {
+          multiple ? (
+            <Calendar
+              className="Selectable"
+              modifiers={modifiers}
+              selectedDays={[from, { from, to }]}
+              onDayClick={this.handleDayRangeClick}
+            />
+          ) : (
+            <Calendar
+              selectedDays={from}
+              onDayClick={this.handleDayClick}
+            />
+          )
+        }
       </CalendarContainer>
     );
   }
@@ -80,14 +103,16 @@ DataSelector.propTypes = {
   isActive: PropTypes.bool,
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.node,
-  name: PropTypes.node
+  name: PropTypes.node,
+  multiple: PropTypes.bool
 };
 
 DataSelector.defaultProps = {
   isActive: false,
   startDate: new Date(),
   endDate: PropTypes.Null,
-  name: 'Дата'
+  name: 'Дата',
+  multiple: false
 };
 
 export default DataSelector;
