@@ -4,7 +4,8 @@ Slider
 const options = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
-  { value: 'three', label: 'Three' }
+  { value: 'three', label: 'Three' },
+  { value: 'four', label: 'Four' }
 ];
 
 initialState = { value: options[0].value };

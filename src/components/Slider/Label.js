@@ -1,31 +1,22 @@
 import styled from 'react-emotion';
 
 export default styled.div`
-  display: block;
-  border: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: 28px;
+  height: 16px;
   text-align: center;
   outline: none;
   cursor: pointer;
   
-  &:first-child {
-    position: relative;
-    text-align: left;
-    
-    span {
-      position: absolute;
-      transform: translateX(-50%);
-    }
+  span {
+    position: absolute;
+    transform: translateX(-50%);
   }
   
-  &:last-child {
-    position: relative;
-    text-align: right;
-    
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+    /* IE10+ specific styles go here */
     span {
-      position: absolute;
-      transform: translateX(-50%);
+      transform: translateX(0);
     }
   }
 `;

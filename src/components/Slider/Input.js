@@ -3,7 +3,14 @@ import styled from 'react-emotion';
 export default styled.input`
   width: 100%;
   height: 34px;
-   -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  background: transparent;
+   
+  &::-moz-focus-outer {
+    border: 0;
+  }
 
   &::-webkit-slider-runnable-track {
       height: 2px;
@@ -53,31 +60,20 @@ export default styled.input`
   }
 
   // IE
-  /*hide the outline behind the border*/
-  &:-moz-focusring{
-      outline: 1px solid white;
-      outline-offset: -1px;
-  }
-  
-  &:focus::-moz-range-track {
-      background: transparent;
-  }
   
   &::-ms-track {
       height: 2px;
-      background: #000000;
+      background: transparent;
       border: none;
-      border-radius: 1px;
+      color: transparent;
   }
   
   &::-ms-fill-lower {
-      background: #777;
-      border-radius: 10px;
+      background: #000000;
   }
-  
+
   &::-ms-fill-upper {
-      background: #ddd;
-      border-radius: 10px;
+      background: #000000;
   }
   
   &::-ms-thumb {
@@ -86,17 +82,20 @@ export default styled.input`
       background-color: #ffffff;
       border: solid 2px #000000;
       border-radius: 50%;
-      margin-top: -14px;
       &:hover {
           cursor: pointer;
         }
   }
   
   &:focus::-ms-fill-lower {
-      background: #888;
+      background: #000000;
   }
   
   &:focus::-ms-fill-upper {
-      background: #ccc;
+      background: #000000;
+  }
+  
+  &::-ms-tooltip {
+    display: none;
   }
 `;
