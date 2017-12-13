@@ -1,8 +1,10 @@
 import React from 'react';
+import DayPicker from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
 
 /**
  * @component
  */
-export default props => <div>
+const Calendar = props => <DayPicker {...props} />;
 
-</div>;
+export default Calendar;
