@@ -5,7 +5,9 @@ exports[`Slider does not crash 1`] = `
   <Styled(input)
     max={2}
     onChange={[Function]}
-    onMouseUp={[Function]}
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onTouchEnd={[Function]}
     step={0.01}
     type="range"
     value={-1}
