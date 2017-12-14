@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataSelector does not crash 1`] = `
+<DataSelector
+  from={2017-12-14T09:49:06.149Z}
+  isActive={false}
+  multiple={false}
+  name="Дата"
+  onChange={[Function]}
+/>
+`;
