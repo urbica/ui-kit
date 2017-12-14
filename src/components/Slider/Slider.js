@@ -76,6 +76,9 @@ class Slider extends PureComponent {
 
     return (
       <Container>
+        <Scale length={options.length}>
+          {options.map(this._renderOption)}
+        </Scale>
         <Input
           type="range"
           value={this.state.index}
@@ -86,9 +89,6 @@ class Slider extends PureComponent {
           max={options.length - 1}
           step={0.01}
         />
-        <Scale length={options.length}>
-          {options.map(this._renderOption)}
-        </Scale>
       </Container>
     );
   }
