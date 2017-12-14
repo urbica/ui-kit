@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "emotion": "8.0.12",
+    "react-click-outside": "^3.0.0",
     "react-day-picker": "^7.0.5",
     "react-emotion": "8.0.12"
   },

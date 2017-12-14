@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { DateUtils } from 'react-day-picker';
+import enhanceWithClickOutside from 'react-click-outside';
 import Calendar from '../Calendar';
 
 // Style
@@ -19,30 +20,34 @@ class DataSelector extends PureComponent {
 
     this.state = {
       isActive: this.props.isActive,
-      from: this.props.startDate,
-      to: this.props.endDate
+      from: this.props.from,
+      to: this.props.to
     };
 
-    this.onClick = this.onClick.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
-    this.handleDayRangeClick = this.handleDayRangeClick.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this._renderCalendar = this._renderCalendar.bind(this);
     this._renderDate = this._renderDate.bind(this);
   }
 
-  onClick() {
+  toggle() {
     this.setState({ isActive: !this.state.isActive });
   }
 
-  handleDayClick(day) {
-    this.setState({
-      from: day
-    });
+  handleClickOutside() {
+    this.setState({ isActive: false });
   }
 
-  handleDayRangeClick(day) {
-    const range = DateUtils.addDayToRange(day, this.state);
-    this.setState(range);
+  handleDayClick(day) {
+    if (this.props.multiple) {
+      const range = DateUtils.addDayToRange(day, this.state);
+      this.props.onChange(range);
+      this.setState(range);
+    } else {
+      this.props.onChange({ from: day });
+      this.setState({ from: day });
+    }
   }
 
   _renderDate() {
@@ -73,7 +78,7 @@ class DataSelector extends PureComponent {
               className="Selectable"
               modifiers={modifiers}
               selectedDays={[from, { from, to }]}
-              onDayClick={this.handleDayRangeClick}
+              onDayClick={this.handleDayClick}
             />
           ) : (
             <Calendar
@@ -90,7 +95,7 @@ class DataSelector extends PureComponent {
     const { isActive } = this.state;
 
     return (
-      <Container onClick={this.onClick}>
+      <Container onClick={this.toggle}>
         <Name>{this.props.name}</Name>
         <Text>{this._renderDate()}</Text>
         { isActive && this._renderCalendar() }
@@ -101,18 +106,19 @@ class DataSelector extends PureComponent {
 
 DataSelector.propTypes = {
   isActive: PropTypes.bool,
-  startDate: PropTypes.instanceOf(Date),
-  endDate: PropTypes.node,
+  from: PropTypes.instanceOf(Date),
+  to: PropTypes.node,
+  multiple: PropTypes.bool,
   name: PropTypes.node,
-  multiple: PropTypes.bool
+  onChange: PropTypes.func.isRequired
 };
 
 DataSelector.defaultProps = {
   isActive: false,
-  startDate: new Date(),
-  endDate: PropTypes.Null,
-  name: 'Дата',
-  multiple: false
+  from: new Date(),
+  to: PropTypes.Null,
+  multiple: false,
+  name: 'Дата'
 };
 
-export default DataSelector;
+export default enhanceWithClickOutside(DataSelector);
