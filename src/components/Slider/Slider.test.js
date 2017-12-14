@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Slider from '../Slider';
-import Input from '../Slider/Input';
+import Input from '../InputRange/InputRange';
 
 const options = [
   { value: 'one', label: 'One' },
