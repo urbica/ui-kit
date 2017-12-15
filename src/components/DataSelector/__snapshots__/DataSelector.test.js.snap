@@ -2,7 +2,7 @@
 
 exports[`DataSelector does not crash 1`] = `
 <DataSelector
-  from={2017-12-14T09:49:06.149Z}
+  from={2017-12-15T08:25:27.062Z}
   isActive={false}
   multiple={false}
   name="Дата"
