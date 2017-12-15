@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { DateUtils } from 'react-day-picker';
 import enhanceWithClickOutside from 'react-click-outside';
 import Calendar from '../Calendar';
+import dateParse from '../../utils/dateParse';
 
 // Style
 import Container from './Container';
@@ -52,8 +53,8 @@ class DataSelector extends PureComponent {
 
   _renderDate() {
     const { from, to } = this.state;
-    const start = from && from.toLocaleString().substring(0, 10);
-    const end = to && to.toLocaleString().substring(0, 10);
+    const start = dateParse(from);
+    const end = dateParse(to);
 
     if (to) {
       return `${start} – ${end}`;

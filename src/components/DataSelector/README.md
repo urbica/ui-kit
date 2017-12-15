@@ -1,11 +1,11 @@
 DataSelector
 
 ```js
-<DataSelector onChange={() => {}} />
+<DataSelector onChange={(value) => console.log(value)} />
 ```
 
 DataSelector multiple
 
 ```js
-<DataSelector onChange={() => {}} multiple/>
+<DataSelector onChange={(value) => console.log(value)} multiple />
 ```
