@@ -1,13 +1,30 @@
 import React from 'react';
 import styled from 'react-emotion';
 
-const Button = styled.button`
-  background-color: salmon;
-  border: 1px solid indianred;
-  color: snow;
+const Button = styled.div`
+  display: flex;
+  flex: 1;
+  height: 40px;
+  border: 1px solid #303d41;
+  border-right: 0;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: ${({ active }) => (active ? '#303d41' : 'white')};
+  color: ${({ active }) => (active ? '#f5f4f5' : '#303d41')};
+  
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ active }) => (active ? '#303d41' : '#bfbfbf')};
+  }
+
+  &:last-child {
+    border-right: 1px solid #303d41;
+  }
 `;
 
 /**
  * @component
  */
+
 export default props => <Button {...props} />;
