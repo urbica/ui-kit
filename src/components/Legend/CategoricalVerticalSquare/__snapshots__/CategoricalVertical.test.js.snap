@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Legend does not crash 1`] = `
+<div>
+  <Styled(div)
+    key="1"
+  >
+    <Styled(div)
+      color="#111111"
+    />
+    <Styled(div)>
+      0
+    </Styled(div)>
+  </Styled(div)>
+  <Styled(div)
+    key="2"
+  >
+    <Styled(div)
+      color="#333333"
+    />
+    <Styled(div)>
+      100
+    </Styled(div)>
+  </Styled(div)>
+  <Styled(div)
+    key="3"
+  >
+    <Styled(div)
+      color="#666666"
+    />
+    <Styled(div)>
+      300
+    </Styled(div)>
+  </Styled(div)>
+  <Styled(div)
+    key="4"
+  >
+    <Styled(div)
+      color="#999999"
+    />
+    <Styled(div)>
+      600
+    </Styled(div)>
+  </Styled(div)>
+  <Styled(div)
+    key="5"
+  >
+    <Styled(div)
+      color="#AAAAAA"
+    />
+    <Styled(div)>
+      900
+    </Styled(div)>
+  </Styled(div)>
+</div>
+`;
