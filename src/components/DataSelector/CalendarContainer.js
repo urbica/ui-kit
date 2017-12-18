@@ -7,6 +7,10 @@ export default styled.div`
   background-color: white;
   z-index: 5;
   
+  input {
+    display: block;
+  }
+  
   ${props => props.multiple && `
     .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
       background-color: #f0f8ff !important;

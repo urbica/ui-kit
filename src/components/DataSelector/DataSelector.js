@@ -26,6 +26,7 @@ class DataSelector extends PureComponent {
     };
 
     this.toggle = this.toggle.bind(this);
+    this.onChangeHour = this.onChangeHour.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this._renderCalendar = this._renderCalendar.bind(this);
@@ -41,14 +42,26 @@ class DataSelector extends PureComponent {
   }
 
   handleDayClick(day) {
+    const { from } = this.state;
     if (this.props.multiple) {
       const range = DateUtils.addDayToRange(day, this.state);
       this.props.onChange(range);
       this.setState(range);
     } else {
+      if (from.getHours() !== 12) {
+        const newDate = new Date(day.setHours(from.getHours()));
+        this.props.onChange({ from: newDate });
+        this.setState({ from: newDate });
+      }
       this.props.onChange({ from: day });
       this.setState({ from: day });
     }
+  }
+
+  onChangeHour(e) {
+    const newDate = new Date(this.state.from.setHours(e.target.value));
+    this.props.onChange({ from: newDate });
+    this.setState({ from: newDate });
   }
 
   _renderDate() {
@@ -81,12 +94,19 @@ class DataSelector extends PureComponent {
               selectedDays={[from, { from, to }]}
               onDayClick={this.handleDayClick}
             />
-          ) : (
+          ) : [
             <Calendar
+              key="calendar"
               selectedDays={from}
               onDayClick={this.handleDayClick}
+            />,
+            <input
+              key="slider"
+              type="range"
+              max={23}
+              onChange={this.onChangeHour}
             />
-          )
+          ]
         }
       </CalendarContainer>
     );
