@@ -43,17 +43,17 @@ class DataSelector extends PureComponent {
 
   handleDayClick(day) {
     const { from } = this.state;
-    if (this.props.multiple) {
+    const { multiple, onChange } = this.props;
+    if (multiple) {
       const range = DateUtils.addDayToRange(day, this.state);
-      this.props.onChange(range);
+      onChange(range);
       this.setState(range);
+    } else if (from.getHours() !== 12) {
+      const newDate = new Date(day.setHours(from.getHours()));
+      onChange({ from: newDate });
+      this.setState({ from: newDate });
     } else {
-      if (from.getHours() !== 12) {
-        const newDate = new Date(day.setHours(from.getHours()));
-        this.props.onChange({ from: newDate });
-        this.setState({ from: newDate });
-      }
-      this.props.onChange({ from: day });
+      onChange({ from: day });
       this.setState({ from: day });
     }
   }
@@ -69,11 +69,7 @@ class DataSelector extends PureComponent {
     const start = dateParse(from);
     const end = dateParse(to);
 
-    if (to) {
-      return `${start} – ${end}`;
-    }
-
-    return start;
+    return to ? `${start} – ${end}` : start;
   }
 
   _renderCalendar() {
@@ -86,27 +82,20 @@ class DataSelector extends PureComponent {
         onClick={e => e.stopPropagation()}
         multiple={multiple}
       >
+        <Calendar
+          className={multiple ? 'Selectable' : null}
+          modifiers={multiple ? modifiers : null}
+          selectedDays={[from, { from, to }]}
+          onDayClick={this.handleDayClick}
+        />
         {
-          multiple ? (
-            <Calendar
-              className="Selectable"
-              modifiers={modifiers}
-              selectedDays={[from, { from, to }]}
-              onDayClick={this.handleDayClick}
-            />
-          ) : [
-            <Calendar
-              key="calendar"
-              selectedDays={from}
-              onDayClick={this.handleDayClick}
-            />,
+          multiple &&
             <input
               key="slider"
               type="range"
               max={23}
               onChange={this.onChangeHour}
             />
-          ]
         }
       </CalendarContainer>
     );
