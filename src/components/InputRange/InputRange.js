@@ -1,6 +1,7 @@
+import React from 'react';
 import styled from 'react-emotion';
 
-export default styled.input`
+const InputRange = styled.input`
   width: 100%;
   height: 34px;
   margin: 0;
@@ -21,7 +22,6 @@ export default styled.input`
   
   &::-webkit-slider-thumb {
       -webkit-appearance: none;
-      border: none;
       height: 28px;
       width: 28px;
       background-color: #ffffff;
@@ -47,7 +47,6 @@ export default styled.input`
 
   &::-moz-range-thumb {
       -webkit-appearance: none;
-      border: none;
       height: 28px;
       width: 28px;
       background-color: #ffffff;
@@ -99,3 +98,9 @@ export default styled.input`
     display: none;
   }
 `;
+
+/**
+ * @component
+ */
+
+export default props => <InputRange type="range" {...props} />;

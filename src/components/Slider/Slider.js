@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import findIndex from '../../utils/findIndex';
+import InputRange from '../InputRange';
 
 // Style
 import Container from './Container';
 import Scale from './Scale';
 import Label from './Label';
-import Input from './Input';
 
 /**
  * @component
@@ -76,8 +76,10 @@ class Slider extends PureComponent {
 
     return (
       <Container>
-        <Input
-          type="range"
+        <Scale length={options.length}>
+          {options.map(this._renderOption)}
+        </Scale>
+        <InputRange
           value={this.state.index}
           onChange={this.onChange}
           onClick={this.onChangeEnd}
@@ -86,9 +88,6 @@ class Slider extends PureComponent {
           max={options.length - 1}
           step={0.01}
         />
-        <Scale length={options.length}>
-          {options.map(this._renderOption)}
-        </Scale>
       </Container>
     );
   }
