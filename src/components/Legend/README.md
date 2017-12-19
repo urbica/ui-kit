@@ -10,9 +10,9 @@ const values = [
 ];
 
 <Legend
-  type="Categorical"
-  shape="Rectangle"
-  direction="Horizontal"
+  type="categorical"
+  shape="rectangle"
+  direction="horizontal"
   values={values}
 />
 ```
@@ -29,9 +29,9 @@ const values = [
 ];
 
 <Legend
-  type="Categorical"
-  shape="Circle"
-  direction="Horizontal"
+  type="categorical"
+  shape="circle"
+  direction="horizontal"
   values={values}
 />
 ```
@@ -48,9 +48,9 @@ const values = [
 ];
 
 <Legend
-  type="Categorical"
-  shape="Square"
-  direction="Vertical"
+  type="categorical"
+  shape="square"
+  direction="vertical"
   values={values}
 />
 ```
@@ -68,9 +68,9 @@ const values = [
 ];
 
 <Legend
-  type="Interval"
-  shape="Rectangle"
-  direction="Horizontal"
+  type="interval"
+  shape="rectangle"
+  direction="horizontal"
   values={values}
 />
 ```
