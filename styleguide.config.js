@@ -13,7 +13,7 @@ module.exports = {
       components: () => [
         'src/components/Button/Button.js',
         'src/components/Slider/Slider.js',
-        'src/components/Select/Select.js'
+        'src/components/Selector/Selector.js'
       ]
     }
   ]

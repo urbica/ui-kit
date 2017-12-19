@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Urbica UI Kit",
   "author": "Stepan Kuzmin <stepan@urbica.co>",
-  "contributors": ["Stepan Kuzmin <stepan@urbica.co>"],
+  "contributors": [
+    "Stepan Kuzmin <stepan@urbica.co>"
+  ],
   "repository": "git@github.com:urbica/ui-kit.git",
   "license": "MIT",
   "main": "dist/ui-kit.js",
@@ -24,7 +26,9 @@
     "postpublish": "npm run styleguide:build && npm run styleguide:deploy"
   },
   "jest": {
-    "setupFiles": ["<rootDir>/jest.setup.js"]
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ]
   },
   "config": {
     "commitizen": {
@@ -33,6 +37,7 @@
   },
   "dependencies": {
     "emotion": "8.0.12",
+    "react-click-outside": "^3.0.0",
     "react-emotion": "8.0.12"
   },
   "devDependencies": {

@@ -2,4 +2,4 @@
 
 export { default as Button } from './components/Button';
 export { default as Slider } from './components/Slider';
-export { default as ListItem } from './components/ListItem';
+export { default as Selector } from './components/Selector';
