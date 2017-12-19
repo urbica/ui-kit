@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem does not crash 1`] = `
+<Styled(div)
+  isActive={false}
+  onClick={[Function]}
+>
+  <Styled(div)
+    isActive={false}
+  >
+    test
+  </Styled(div)>
+  <Styled(div)
+    isActive={false}
+  >
+    test
+  </Styled(div)>
+</Styled(div)>
+`;

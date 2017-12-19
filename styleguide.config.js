@@ -2,7 +2,6 @@ module.exports = {
   title: 'Urbica UI Kit',
   showCode: true,
   showUsage: true,
-  components: 'src/components/**/*.js',
   sections: [
     {
       name: 'Installation',
@@ -15,7 +14,8 @@ module.exports = {
         'src/components/InputRange/InputRange.js',
         'src/components/Slider/Slider.js',
         'src/components/Legend/Legend.js',
-        'src/components/RadioGroup/RadioGroup.js'
+        'src/components/RadioGroup/RadioGroup.js',
+        'src/components/ListItem/ListItem.js'
       ]
     }
   ]
