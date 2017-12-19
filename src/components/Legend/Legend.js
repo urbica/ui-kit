@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import capitalize from '../../utils/capitalize';
 
 import CategoricalHorizontalRectangle from './CategoricalHorizontalRectangle';
 import CategoricalVerticalSquare from './CategoricalVerticalSquare';
@@ -14,23 +15,25 @@ const COMPONENTS = {
 };
 
 const TYPES = {
-  CATEGORICAL: 'Categorical',
-  INTERVAL: 'Interval'
+  CATEGORICAL: 'categorical',
+  INTERVAL: 'interval'
 };
 
 const DIRECTIONS = {
-  VERTICAL: 'Vertical',
-  HORIZONTAL: 'Horizontal'
+  VERTICAL: 'vertical',
+  HORIZONTAL: 'horizontal'
 };
 
 const SHAPES = {
-  CIRCLE: 'Circle',
-  SQUARE: 'Square',
-  RECTANGLE: 'Rectangle'
+  CIRCLE: 'circle',
+  SQUARE: 'square',
+  RECTANGLE: 'rectangle'
 };
 
 const Legend = (props) => {
-  const ComponentName = `${props.type}${props.direction}${props.shape}`;
+  const ComponentName = capitalize(props.type)
+    + capitalize(props.direction)
+    + capitalize(props.shape);
   const Component = COMPONENTS[ComponentName];
   if (!Component) {
     return null;
