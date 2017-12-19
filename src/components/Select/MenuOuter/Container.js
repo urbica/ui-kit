@@ -1,6 +1,7 @@
 import styled from 'react-emotion';
 
-export default styled.div`
+export default styled.ul`
+  display: block;
   position: absolute;
   right: -50px;
   top: 0;
