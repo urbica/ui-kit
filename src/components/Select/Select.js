@@ -28,7 +28,7 @@ class Select extends PureComponent {
         123
         {
           this.state.isOpen &&
-            <MenuOuter onClick={e => e.stopPropagation()} />
+            <MenuOuter />
         }
       </Container>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import Container from './Container';
 
 const MenuOuter = () => (
-  <Container>
+  <Container onClick={e => console.log(e)}>
     123
   </Container>
 );
