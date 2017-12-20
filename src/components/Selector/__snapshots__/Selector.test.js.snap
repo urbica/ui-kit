@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selector does not crash 1`] = `
+<Selector
+  isOpen={false}
+  onChange={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "One",
+        "value": "one",
+      },
+      Object {
+        "label": "Two",
+        "value": "two",
+      },
+      Object {
+        "label": "Three",
+        "value": "three",
+      },
+      Object {
+        "label": "Four",
+        "value": "four",
+      },
+    ]
+  }
+  value="one"
+/>
+`;

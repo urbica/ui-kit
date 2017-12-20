@@ -11,7 +11,7 @@ const MenuOuter = (props) => {
         options.map(option => (
           <Item
             key={option.value}
-            isActive={value === option.value}
+            style={{ background: value === option.value ? '#f5f4f5' : '#FFFFFF' }}
             onClick={onClick.bind(null, option.value)}
           >
             {option.label}

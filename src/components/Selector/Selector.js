@@ -15,7 +15,7 @@ class Selector extends PureComponent {
     super(props);
 
     this.state = {
-      isOpen: false,
+      isOpen: this.props.isOpen,
       value: this.props.value
     };
 
@@ -25,8 +25,16 @@ class Selector extends PureComponent {
   }
 
   componentWillMount() {
-    if (!this.props.options.length) {
+    const { options } = this.props;
+
+    if (!options.length) {
       throw new Error('options is empty');
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.value !== this.props.value) {
+      this.setState({ value: nextProps.value });
     }
   }
 
@@ -72,11 +80,13 @@ Selector.propTypes = {
     label: PropTypes.node.isRequired
   })).isRequired,
   value: PropTypes.node,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  isOpen: PropTypes.bool
 };
 
 Selector.defaultProps = {
   value: null,
+  isOpen: false,
   onChange: () => {}
 };
 

@@ -1,6 +1,6 @@
 import styled from 'react-emotion';
 
-export default styled.li`
+const Item = styled.li`
   display: flex;
   list-style-type: none;
   height: 50px;
@@ -9,8 +9,6 @@ export default styled.li`
   box-sizing: border-box;
   align-items: center;
   user-select: none;
-  
-  background-color: ${({ isActive }) => (isActive ? '#f5f4f5' : '#FFFFFF')};
 
   &:hover {
     color: #223bf2;
@@ -20,3 +18,5 @@ export default styled.li`
     border-bottom: 0;
   }
 `;
+
+export default Item;
