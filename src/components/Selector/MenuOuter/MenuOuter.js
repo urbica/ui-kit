@@ -8,15 +8,18 @@ const MenuOuter = (props) => {
   return (
     <Container onClick={e => e.stopPropagation()}>
       {
-        options.map(option => (
-          <Item
-            key={option.value}
-            style={{ background: value === option.value ? '#f5f4f5' : '#FFFFFF' }}
-            onClick={onClick.bind(null, option.value)}
-          >
-            {option.label}
-          </Item>
-        ))
+        options.map((option) => {
+          const isActive = value === option.value;
+          return (
+            <Item
+              key={option.value}
+              style={{ background: isActive ? '#f5f4f5' : '#FFFFFF' }}
+              onClick={onClick.bind(null, option.value)}
+            >
+              {option.label}
+            </Item>
+          );
+        })
       }
     </Container>
   );
