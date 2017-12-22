@@ -83,7 +83,7 @@ class Slider extends PureComponent {
     const { index } = this.state;
     const position = index && (index / (options.length - 1)) * 100;
     const roundIndex = Math.round(index);
-    const { label } = options[roundIndex];
+    const label = options[roundIndex] && options[roundIndex].label;
 
     return (
       <Container>
