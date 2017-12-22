@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import enhanceWithClickOutside from 'react-click-outside';
 import PropTypes from 'prop-types';
 import findIndex from '../../utils/findIndex';
 
@@ -19,9 +18,10 @@ class Selector extends PureComponent {
       value: this.props.value
     };
 
-    this.toggle = this.toggle.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.setChildNodeRef = this.setChildNodeRef.bind(this);
   }
 
   componentWillMount() {
@@ -38,7 +38,14 @@ class Selector extends PureComponent {
     }
   }
 
-  toggle() {
+  toggleMenu() {
+    if (!this.state.isOpen) {
+      // attach/remove event handler
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+
     this.setState({ isOpen: !this.state.isOpen });
   }
 
@@ -47,8 +54,15 @@ class Selector extends PureComponent {
     this.setState({ value });
   }
 
-  handleClickOutside() {
-    this.setState({ isOpen: false });
+  handleOutsideClick(e) {
+    const isDescendantOfRoot = this.childNode && this.childNode.contains(e.target);
+    if (!isDescendantOfRoot) {
+      this.toggleMenu();
+    }
+  }
+
+  setChildNodeRef(ref) {
+    this.childNode = ref;
   }
 
   render() {
@@ -59,12 +73,15 @@ class Selector extends PureComponent {
     const label = value && options[index].label;
 
     return (
-      <Container onClick={this.toggle}>
+      <Container
+        innerRef={this.setChildNodeRef}
+        onClick={this.toggleMenu}
+      >
         {label || 'Выберите значение'}
         {
           isOpen &&
             <MenuOuter
-              onClick={this.handleOnClick}
+              handleOnClick={this.handleOnClick}
               options={this.props.options}
               value={value}
             />
@@ -90,4 +107,4 @@ Selector.defaultProps = {
   onChange: () => {}
 };
 
-export default enhanceWithClickOutside(Selector);
+export default Selector;

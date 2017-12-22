@@ -38,7 +38,8 @@
   "dependencies": {
     "emotion": "8.0.12",
     "react-click-outside": "^3.0.0",
-    "react-emotion": "8.0.12"
+    "react-emotion": "8.0.12",
+    "simulant": "^0.2.2"
   },
   "devDependencies": {
     "babel-core": "6.26.0",

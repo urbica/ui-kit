@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import simulant from 'simulant';
 import toJson from 'enzyme-to-json';
 import Selector from '../Selector';
 import Container from '../Selector/Container';
@@ -24,7 +25,7 @@ test('Selector does not crash', () => {
 });
 
 test('Selector with an empty array', () => {
-  expect(() => shallow(<Selector options={[]} />).dive())
+  expect(() => shallow(<Selector options={[]} />))
     .toThrowError('options is empty');
 });
 
@@ -47,7 +48,8 @@ test('Selector simulate onClick', () => {
       options={options}
       value={options[0].value}
     />
-  ).dive();
+  );
+
   const btn = wrapper.find(Container).first();
   expect(wrapper.state().isOpen).toEqual(false);
   btn.simulate('click');
@@ -55,13 +57,14 @@ test('Selector simulate onClick', () => {
 });
 
 test('Selector simulate change value', () => {
-  const wrapper = shallow(
+  const wrapper = mount(
     <Selector
       onChange={onChange}
       options={options}
       value={options[0].value}
     />
   );
+
   expect(wrapper.props().value).toEqual(options[0].value);
   wrapper.setProps({ value: options[1].value });
   expect(wrapper.props().value).toEqual(options[1].value);
@@ -74,11 +77,11 @@ test('Selector simulate Item onClick', () => {
       options={options}
       value={options[0].value}
     />
-  ).dive();
+  );
   wrapper.setState({ isOpen: true });
   const menuOuter = wrapper.find(MenuOuter).first();
   const itemLast = menuOuter.dive().find(Item).last();
-  itemLast.simulate('click');
+  itemLast.simulate('click', { stopPropagation: () => {} });
   expect(wrapper.state().value).toEqual(options[3].value);
 });
 
@@ -89,10 +92,26 @@ test('Selector simulate click MenuOuter', () => {
       options={options}
       value={options[0].value}
     />
-  ).dive();
+  );
   wrapper.setState({ isOpen: true });
   const menuOuter = wrapper.find(MenuOuter).first();
   const container = menuOuter.dive().find(MenuOuterContainer).first();
   container.simulate('click', { stopPropagation: () => {} });
   expect(wrapper.state().value).toEqual(options[0].value);
+});
+
+test('calls handleClickOutside when clicked outside of component', () => {
+  const wrapper = shallow(
+    <Selector
+      onChange={onChange}
+      options={options}
+      value={options[0].value}
+    />
+  );
+  const btn = wrapper.find(Container).first();
+  expect(wrapper.state().isOpen).toEqual(false);
+  btn.simulate('click');
+  expect(wrapper.state().isOpen).toEqual(true);
+  simulant.fire(document, 'click');
+  expect(wrapper.state().isOpen).toEqual(false);
 });

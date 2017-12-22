@@ -3,7 +3,7 @@ import Container from './Container';
 import Item from './Item';
 
 const MenuOuter = (props) => {
-  const { value, onClick, options } = props;
+  const { value, handleOnClick, options } = props;
 
   return (
     <Container onClick={e => e.stopPropagation()}>
@@ -14,7 +14,7 @@ const MenuOuter = (props) => {
             <Item
               key={option.value}
               style={{ background: isActive ? '#f5f4f5' : '#FFFFFF' }}
-              onClick={onClick.bind(null, option.value)}
+              onClick={handleOnClick.bind(null, option.value)}
             >
               {option.label}
             </Item>
