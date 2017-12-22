@@ -20,6 +20,7 @@ const onChange = (value) => {
     onChange={onChange}
     options={options}
     value={state.value}
+    ticks={2}
   />
 </div>
 ```

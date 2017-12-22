@@ -7,6 +7,7 @@ import InputRange from '../InputRange';
 import Container from './Container';
 import Scale from './Scale';
 import Label from './Label';
+import ValueBubbles from './ValueBubbles';
 
 /**
  * @component
@@ -60,19 +61,29 @@ class Slider extends PureComponent {
   }
 
   _renderOption(option, index) {
+    const { ticks } = this.props;
+    const isVisible = !ticks || !!(index % ticks);
+
     return (
       <Label
         key={option.value}
         role="button"
         onClick={this.onScaleClick.bind(null, index)}
       >
-        <span>{option.label}</span>
+        {
+          isVisible &&
+            <span>{option.label}</span>
+        }
       </Label>
     );
   }
 
   render() {
-    const { options } = this.props;
+    const { options, tooltip } = this.props;
+    const { index } = this.state;
+    const position = index && (index / (options.length - 1)) * 100;
+    const roundIndex = Math.round(index);
+    const { label } = options[roundIndex];
 
     return (
       <Container>
@@ -88,6 +99,12 @@ class Slider extends PureComponent {
           max={options.length - 1}
           step={0.01}
         />
+        {
+          tooltip &&
+            <ValueBubbles position={position}>
+              {label}
+            </ValueBubbles>
+        }
       </Container>
     );
   }
@@ -99,11 +116,15 @@ Slider.propTypes = {
     label: PropTypes.node
   })).isRequired,
   value: PropTypes.node,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  tooltip: PropTypes.bool,
+  ticks: PropTypes.number
 };
 
 Slider.defaultProps = {
-  value: PropTypes.null
+  value: PropTypes.null,
+  tooltip: true,
+  ticks: null
 };
 
 export default Slider;
