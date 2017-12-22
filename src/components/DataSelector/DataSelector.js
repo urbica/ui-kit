@@ -21,12 +21,11 @@ class DataSelector extends PureComponent {
 
     this.state = {
       isActive: this.props.isActive,
-      from: this.props.from,
-      to: this.props.to
+      startDate: this.props.startDate,
+      endDate: this.props.endDate
     };
 
     this.toggle = this.toggle.bind(this);
-    this.onChangeHour = this.onChangeHour.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this._renderCalendar = this._renderCalendar.bind(this);
@@ -42,40 +41,34 @@ class DataSelector extends PureComponent {
   }
 
   handleDayClick(day) {
-    const { from } = this.state;
     const { multiple, onChange } = this.props;
+
     if (multiple) {
       const range = DateUtils.addDayToRange(day, this.state);
       onChange(range);
-      this.setState(range);
-    } else if (from.getHours() !== 12) {
-      const newDate = new Date(day.setHours(from.getHours()));
-      onChange({ from: newDate });
-      this.setState({ from: newDate });
+
+      this.setState({
+        startDate: range.from,
+        endDate: range.to
+      });
     } else {
-      onChange({ from: day });
-      this.setState({ from: day });
+      onChange({ startDate: day });
+      this.setState({ startDate: day });
     }
   }
 
-  onChangeHour(e) {
-    const newDate = new Date(this.state.from.setHours(e.target.value));
-    this.props.onChange({ from: newDate });
-    this.setState({ from: newDate });
-  }
-
   _renderDate() {
-    const { from, to } = this.state;
-    const start = dateParse(from);
-    const end = dateParse(to);
+    const { startDate, endDate } = this.state;
+    const start = dateParse(startDate);
+    const end = dateParse(endDate);
 
-    return to ? `${start} – ${end}` : start;
+    return endDate ? `${start} – ${end}` : start;
   }
 
   _renderCalendar() {
-    const { from, to } = this.state;
+    const { startDate, endDate } = this.state;
     const { multiple } = this.props;
-    const modifiers = { start: from, end: to };
+    const modifiers = { start: startDate, end: endDate };
 
     return (
       <CalendarContainer
@@ -85,18 +78,9 @@ class DataSelector extends PureComponent {
         <Calendar
           className={multiple ? 'Selectable' : null}
           modifiers={multiple ? modifiers : null}
-          selectedDays={[from, { from, to }]}
+          selectedDays={[startDate, { startDate, endDate }]}
           onDayClick={this.handleDayClick}
         />
-        {
-          multiple &&
-            <input
-              key="slider"
-              type="range"
-              max={23}
-              onChange={this.onChangeHour}
-            />
-        }
       </CalendarContainer>
     );
   }
@@ -116,8 +100,8 @@ class DataSelector extends PureComponent {
 
 DataSelector.propTypes = {
   isActive: PropTypes.bool,
-  from: PropTypes.instanceOf(Date),
-  to: PropTypes.node,
+  startDate: PropTypes.instanceOf(Date),
+  endDate: PropTypes.node,
   multiple: PropTypes.bool,
   name: PropTypes.node,
   onChange: PropTypes.func.isRequired
@@ -125,8 +109,8 @@ DataSelector.propTypes = {
 
 DataSelector.defaultProps = {
   isActive: false,
-  from: new Date(),
-  to: PropTypes.Null,
+  startDate: new Date(),
+  endDate: PropTypes.Null,
   multiple: false,
   name: 'Дата'
 };
