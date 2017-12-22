@@ -23,7 +23,6 @@ const values = [
 const values = [
   { id: 1, color: '#111', label: 'The Glossary Of Telescopes' },
   { id: 2, color: '#333', label: 'Asteroids' },
-  { id: 3, color: '#666', label: 'Astronomy Or Astrology' },
   { id: 4, color: '#999', label: 'The Universe Through A Childs Eyes' },
   { id: 5, color: '#AAA', label: 'Dude You Re Getting A Telescope' }
 ];

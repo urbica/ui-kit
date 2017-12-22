@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 
-const size = ({ number, length }) => ((20 / length) * number) + 20;
+const size = ({ number, length }) => {
+  const value = ((20 / length) * number) + 20;
+  return value % 2 ? value + 1 : value;
+};
 
 const Circle = styled.div`
   position: relative;
@@ -18,7 +21,7 @@ const Circle = styled.div`
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     content: ' ';
-    
+
     background-color: ${({ color }) => color};
   }
 `;
