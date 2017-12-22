@@ -21,6 +21,7 @@ const InputRange = styled.input`
   }
   
   &::-webkit-slider-thumb {
+      position: relative;
       -webkit-appearance: none;
       height: 28px;
       width: 28px;
