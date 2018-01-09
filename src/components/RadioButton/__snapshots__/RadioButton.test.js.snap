@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton does not crash 1`] = `
+<Component
+  className="css-1qxekea css-ikm4870"
+  value={true}
+>
+  title
+</Component>
+`;
