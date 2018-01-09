@@ -2,21 +2,21 @@
 
 exports[`RadioGroup does not crash 1`] = `
 <Styled(div)>
-  <Component
+  <Styled(div)
     active={true}
     key=".0"
     onClick={[Function]}
     value={1}
   >
     Option 1
-  </Component>
-  <Component
+  </Styled(div)>
+  <Styled(div)
     active={false}
     key=".1"
     onClick={[Function]}
     value={2}
   >
     Option 2
-  </Component>
+  </Styled(div)>
 </Styled(div)>
 `;
