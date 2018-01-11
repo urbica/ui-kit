@@ -67,7 +67,7 @@
     "flow-bin": "^0.63.1",
     "flow-coverage-report": "^0.4.0",
     "gh-pages": "^1.1.0",
-    "jest": "^22.0.4",
+    "jest": "^22.0.5",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-docgen": "^2.20.0",
