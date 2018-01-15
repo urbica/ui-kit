@@ -79,7 +79,7 @@ class Slider extends PureComponent {
     const label = options[roundIndex] && options[roundIndex].label;
 
     return (
-      <Container>
+      <Container tooltip={tooltip}>
         <Scale>{options.map(this._renderOption)}</Scale>
         <InputRange
           value={this.state.index}
