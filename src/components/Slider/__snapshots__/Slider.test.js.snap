@@ -2,9 +2,7 @@
 
 exports[`Slider does not crash 1`] = `
 <Styled(div)>
-  <Styled(div)
-    length={3}
-  >
+  <Styled(div)>
     <Styled(div)
       key="one"
       onClick={[Function]}
@@ -41,6 +39,9 @@ exports[`Slider does not crash 1`] = `
     onTouchEnd={[Function]}
     step={0.01}
     value={-1}
+  />
+  <Styled(div)
+    position={-50}
   />
 </Styled(div)>
 `;

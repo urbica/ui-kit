@@ -7,7 +7,7 @@ import InputRange from '../InputRange';
 import Container from './Container';
 import Scale from './Scale';
 import Label from './Label';
-import ValueBubbles from './ValueBubbles';
+import Handle from './Handle';
 
 /**
  * @component
@@ -87,7 +87,7 @@ class Slider extends PureComponent {
 
     return (
       <Container>
-        <Scale length={options.length}>
+        <Scale>
           {options.map(this._renderOption)}
         </Scale>
         <InputRange
@@ -101,9 +101,9 @@ class Slider extends PureComponent {
         />
         {
           tooltip &&
-            <ValueBubbles position={position}>
+            <Handle position={position}>
               {label}
-            </ValueBubbles>
+            </Handle>
         }
       </Container>
     );
