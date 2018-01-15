@@ -65,15 +65,8 @@ class Slider extends PureComponent {
     const isVisible = !ticks || !!(index % ticks);
 
     return (
-      <Label
-        key={option.value}
-        role="button"
-        onClick={this.onScaleClick.bind(null, index)}
-      >
-        {
-          isVisible &&
-            <span>{option.label}</span>
-        }
+      <Label key={option.value} role="button" onClick={this.onScaleClick.bind(null, index)}>
+        {isVisible && <span>{option.label}</span>}
       </Label>
     );
   }
@@ -87,9 +80,7 @@ class Slider extends PureComponent {
 
     return (
       <Container>
-        <Scale>
-          {options.map(this._renderOption)}
-        </Scale>
+        <Scale>{options.map(this._renderOption)}</Scale>
         <InputRange
           value={this.state.index}
           onChange={this.onChange}
@@ -99,12 +90,7 @@ class Slider extends PureComponent {
           max={options.length - 1}
           step={0.01}
         />
-        {
-          tooltip &&
-            <Handle position={position}>
-              {label}
-            </Handle>
-        }
+        {tooltip && <Handle position={position}>{label}</Handle>}
       </Container>
     );
   }

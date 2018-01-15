@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Urbica UI Kit',
-  showCode: true,
+  showCode: false,
   showUsage: true,
   components: 'src/components/**/*.js',
   sections: [
@@ -12,6 +12,8 @@ module.exports = {
       name: 'Components',
       components: () => [
         'src/components/Button/Button.js',
+        'src/components/RadioButton/RadioButton.js',
+        'src/components/RadioGroup/RadioGroup.js',
         'src/components/Slider/Slider.js',
         'src/components/Legend/Legend.js'
       ]
