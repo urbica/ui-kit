@@ -12,6 +12,7 @@ const Item = styled.li`
 
   &:hover {
     color: #223bf2;
+    cursor: pointer;
   }
 
   &:last-child {

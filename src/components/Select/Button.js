@@ -6,6 +6,7 @@ export default styled.div`
   border-bottom: 1px solid black;
   padding: 20px 0;
   user-select: none;
+  width: 100%;
   
   &:hover {
     cursor: pointer;

@@ -1,4 +1,4 @@
-Selector
+Select
 
 ```js
 const options = [
@@ -9,6 +9,10 @@ const options = [
 ];
 
 <div style={{ width: 300 }}>
-  <Selector options={options} value={options[0].value} />
+  <Select
+    options={options}
+    value={options[0].value}
+    onChange={(value) => console.log(value)}
+  />
 </div>
 ```
