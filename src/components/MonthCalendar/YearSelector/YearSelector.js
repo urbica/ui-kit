@@ -2,10 +2,10 @@ import React from 'react';
 import Button from './Button';
 import Container from './Container';
 
-const YearSelector = ({ date, onChange }) => (
+const YearSelector = ({ year, onChange }) => (
   <Container>
     <Button onClick={onChange.bind(null, -1)} />
-    {date.getFullYear()}
+    {year}
     <Button onClick={onChange.bind(null, 1)} right />
   </Container>
 );

@@ -1,30 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // Style
 import MonthWrap from './MonthWrap';
 import Month from './Month';
-import YearSelector from "./YearSelector/YearSelector";
-
-const months = [
-  'Январь',
-  'Февраль',
-  'Март',
-  'Апрель',
-  'Май',
-  'Июнь',
-  'Июль',
-  'Август',
-  'Сентябрь',
-  'Октябрь',
-  'Ноябрь',
-  'Декабрь'
-];
+import YearSelector from './YearSelector/YearSelector';
 
 class MonthCalendar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      year: new Date().getFullYear(),
       date: new Date()
     };
 
@@ -36,43 +23,74 @@ class MonthCalendar extends Component {
     this.props.onChange(nextState.date);
   }
 
-  onClickMonth(month) {
-    const { date } = this.state;
-    date.setMonth(month);
+  onClickMonth(date) {
     this.setState({ date });
   }
 
   onChangeYear(value) {
-    const { date } = this.state;
-    date.setFullYear(date.getFullYear() + value);
-    this.setState({ date });
+    this.setState({ year: this.state.year + value });
   }
 
   render() {
-    const { date } = this.state;
+    const { date, year } = this.state;
+    const { months, disabled } = this.props;
 
     return (
       <div>
         <YearSelector
-          date={date}
+          year={year}
           onChange={this.onChangeYear}
         />
         <MonthWrap>
           {
-            months.map((month, i) => (
-              <Month
-                key={month}
-                onClick={this.onClickMonth.bind(null, i)}
-                isActive={date.getMonth() === i}
-              >
-                {month}
-              </Month>
-            ))
+            months.map((month, i) => {
+              const isActive = date.getMonth() === i && date.getFullYear() === year;
+              const currentDate = new Date(date);
+
+              currentDate.setMonth(i);
+              currentDate.setFullYear(year);
+
+              return (
+                <Month
+                  key={month}
+                  onClick={this.onClickMonth.bind(null, currentDate)}
+                  isActive={isActive}
+                  isDisabled={disabled(currentDate)}
+                >
+                  {month}
+                </Month>
+              );
+            })
           }
         </MonthWrap>
       </div>
     );
   }
 }
+
+MonthCalendar.propTypes = {
+  onChange: PropTypes.func,
+  months: PropTypes.arrayOf(PropTypes.string),
+  disabled: PropTypes.func
+};
+
+MonthCalendar.defaultProps = {
+  onChange: () => {},
+  disabled: () => false,
+  months: [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь'
+  ]
+};
 
 export default MonthCalendar;

@@ -6,9 +6,12 @@ export default styled.div`
   padding: 5px;
   margin: 5px;
   background-color: ${props => (props.isActive ? '#f5f4f5' : '#ffffff')};
+  color: ${props => (props.isDisabled ? '#90a4ae' : '#263238')};
+  pointer-events: ${props => (props.isDisabled ? 'none' : 'auto')};
+  
   
   &:hover {
     cursor: pointer;
-    background-color: #fbfafb;
+    color: #223bf2;
   }
 `;

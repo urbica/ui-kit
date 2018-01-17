@@ -39,7 +39,7 @@ class DropDownWrapper extends PureComponent {
   render() {
     return (
       <Container innerRef={this.setChildNodeRef}>
-        {this.props.opener(this.toggle)}
+        {this.props.opener(this.toggle, this.state.isOpen)}
         {this.state.isOpen && this.props.children}
       </Container>
     );

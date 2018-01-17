@@ -2,8 +2,9 @@ import styled from 'react-emotion';
 
 export default styled.div`
   position: absolute;
-  right: -220px;
-  top: -17px;
+  left: 0;
+  right: 0;
+  top: 100%;
   z-index: 10;
   background: white;
   

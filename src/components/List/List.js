@@ -11,7 +11,7 @@ const List = ({ currentValue, onChange, options }) => (
         return (
           <Item
             key={option.value}
-            style={{ background: isActive ? '#f5f4f5' : '#FFFFFF' }}
+            isActive={isActive}
             onClick={onChange.bind(null, option.value)}
           >
             {option.label}

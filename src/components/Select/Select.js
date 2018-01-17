@@ -29,7 +29,14 @@ class Select extends PureComponent {
 
     return (
       <DropDownWrapper
-        opener={toggle => (<Button onClick={toggle}>{option.label}</Button>)}
+        opener={(toggle, isOpen) => (
+          <Button
+            isOpen={isOpen}
+            onClick={toggle}
+          >
+            {option.label}
+          </Button>
+        )}
       >
         <DropDown>
           <List
