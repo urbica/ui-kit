@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import findIndex from '../../utils/findIndex';
 
-import DropDownWrapper from '../DropDownWrapper/DropDownWrapper';
+import DropDownWrapper from '../DropdownWrapper/DropdownWrapper';
 import List from '../List/List';
 import Button from './Button';
-import DropDown from './DropDown';
+import Dropdown from './Dropdown';
 
 class Select extends PureComponent {
   constructor(props) {
@@ -38,13 +38,13 @@ class Select extends PureComponent {
           </Button>
         )}
       >
-        <DropDown>
+        <Dropdown>
           <List
             onChange={this.onChange}
             options={options}
             currentValue={this.state.value}
           />
-        </DropDown>
+        </Dropdown>
       </DropDownWrapper>
     );
   }

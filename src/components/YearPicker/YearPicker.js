@@ -1,36 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
+// Style
 import Button from './Button';
 import Container from './Container';
 
-class YearPicker extends Component {
-  constructor(props) {
-    super(props);
+const YearPicker = ({ value, onChange }) => (
+  <Container>
+    <Button onClick={onChange.bind(null, value - 1)} />
+    {value}
+    <Button onClick={onChange.bind(null, value + 1)} right />
+  </Container>
+);
 
-    this.state = {
-      date: new Date()
-    };
+YearPicker.propTypes = {
+  value: PropTypes.number,
+  onChange: PropTypes.func
+};
 
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(value) {
-    const { date } = this.state;
-    const year = date.getFullYear();
-    date.setFullYear(year + value);
-
-    this.setState({ date });
-  }
-
-  render() {
-    const { date } = this.state;
-    return (
-      <Container>
-        <Button onClick={this.onChange.bind(null, -1)} />
-        {date.getFullYear()}
-        <Button onClick={this.onChange.bind(null, 1)} right />
-      </Container>
-    );
-  }
-}
+YearPicker.defaultProps = {
+  value: new Date().getFullYear(),
+  onChange: () => {}
+};
 
 export default YearPicker;

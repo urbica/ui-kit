@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Container from './Container';
 
-class DropDownWrapper extends PureComponent {
+class DropdownWrapper extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -46,4 +46,4 @@ class DropDownWrapper extends PureComponent {
   }
 }
 
-export default DropDownWrapper;
+export default DropdownWrapper;
