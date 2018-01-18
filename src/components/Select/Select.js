@@ -1,4 +1,6 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import findIndex from '../../utils/findIndex';
 
 import DropDownWrapper from '../DropdownWrapper/DropdownWrapper';
@@ -6,48 +8,46 @@ import List from '../List/List';
 import Button from './Button';
 import Dropdown from './Dropdown';
 
-class Select extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      value: this.props.value
-    };
-
-    this.onChange = this.onChange.bind(this);
+const Select = ({ value, options, onChange }) => {
+  if (!options.length) {
+    return null;
   }
 
-  onChange(value) {
-    this.setState({ value });
-    this.props.onChange(value);
-  }
+  const index = findIndex(options, o => o.value === value);
+  const option = index !== -1 ? options[index] : options[0];
 
-  render() {
-    const { options } = this.props;
-    const index = findIndex(options, o => o.value === this.state.value);
-    const option = options[index];
+  return (
+    <DropDownWrapper
+      opener={(toggle, isOpen) => (
+        <Button
+          isOpen={isOpen}
+          onClick={toggle}
+        >
+          {option.label}
+        </Button>
+      )}
+    >
+      <Dropdown>
+        <List
+          onChange={onChange}
+          options={options}
+          value={value}
+        />
+      </Dropdown>
+    </DropDownWrapper>
+  );
+};
 
-    return (
-      <DropDownWrapper
-        opener={(toggle, isOpen) => (
-          <Button
-            isOpen={isOpen}
-            onClick={toggle}
-          >
-            {option.label}
-          </Button>
-        )}
-      >
-        <Dropdown>
-          <List
-            onChange={this.onChange}
-            options={options}
-            currentValue={this.state.value}
-          />
-        </Dropdown>
-      </DropDownWrapper>
-    );
-  }
-}
+Select.propTypes = {
+  value: PropTypes.node,
+  options: PropTypes.arrayOf(PropTypes.object),
+  onChange: PropTypes.func
+};
+
+Select.defaultProps = {
+  value: null,
+  options: [],
+  onChange: () => {}
+};
 
 export default Select;

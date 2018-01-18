@@ -1,6 +1,10 @@
 Select
 
 ```js
+initialState = {
+  value: ''
+};
+
 const options = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
@@ -9,10 +13,11 @@ const options = [
 ];
 
 <div style={{ width: 300 }}>
+  <div>Current value: {state.value}</div>
   <Select
     options={options}
-    value={options[0].value}
-    onChange={(value) => console.log(value)}
+    value={state.value}
+    onChange={(option) => setState({ value: option.value })}
   />
 </div>
 ```

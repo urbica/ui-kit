@@ -47,3 +47,45 @@ const changeMonth = (value) => {
   />
 </div>
 ```
+
+YearPicker + MonthPicker (disabled dates)
+
+```js
+initialState = {
+  date: new Date(),
+  year: new Date().getFullYear()
+};
+const { date, year } = state;
+const activeYear = date.getFullYear() === year;
+
+const changeMonth = (value) => {
+  date.setMonth(value);
+  date.setFullYear(year);
+  setState({ date: new Date(date) });
+};
+
+const disabled = (month) => {
+  if (year > new Date().getFullYear()) {
+    return true;
+  }
+  
+  if (year < new Date().getFullYear()) {
+    return false;
+  }
+
+  return month > new Date().getMonth();
+};
+
+<div>
+  <div>{state.date.toString()}</div>
+  <YearPicker
+    value={year}
+    onChange={(value) => setState({ year: value })}
+  />
+  <MonthPicker
+    value={activeYear ? date.getMonth() : null}
+    onChange={changeMonth}
+    disabled={disabled}
+  />
+</div>
+```

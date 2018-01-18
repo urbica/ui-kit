@@ -1,6 +1,10 @@
 Select
 
 ```js
+initialState = {
+  value: 'two'
+};
+
 const options = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
@@ -9,8 +13,8 @@ const options = [
 ];
 
 <List
-  onChange={() => {}}
+  onChange={(option) => setState({ value: option.value })}
   options={options}
-  currentValue={'two'}
+  value={state.value}
 />
 ```

@@ -1,25 +1,41 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Container from './Container';
 import Item from './Item';
 
-const List = ({ currentValue, onChange, options }) => (
-  <Container onClick={e => e.stopPropagation()}>
-    {
-      options.map((option) => {
-        const isActive = currentValue === option.value;
+const List = ({ value, onChange, options }) => {
+  if (!options || !options.length) {
+    return null;
+  }
 
-        return (
+  return (
+    <Container onClick={e => e.stopPropagation()}>
+      {
+        options.map(option => (
           <Item
             key={option.value}
-            isActive={isActive}
-            onClick={onChange.bind(null, option.value)}
+            isActive={value === option.value}
+            onClick={onChange.bind(null, option)}
           >
             {option.label}
           </Item>
-        );
-      })
-    }
-  </Container>
-);
+        ))
+      }
+    </Container>
+  );
+};
+
+List.propTypes = {
+  value: PropTypes.node,
+  options: PropTypes.arrayOf(PropTypes.object),
+  onChange: PropTypes.func
+};
+
+List.defaultProps = {
+  value: null,
+  options: [],
+  onChange: () => {}
+};
 
 export default List;
