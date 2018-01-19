@@ -10,7 +10,7 @@ import Dropdown from './Dropdown';
 
 const Select = ({ value, options, onChange }) => {
   if (!options.length) {
-    return null;
+    throw new Error('options is empty');
   }
 
   const index = findIndex(options, o => o.value === value);
@@ -27,7 +27,7 @@ const Select = ({ value, options, onChange }) => {
         </Button>
       )}
     >
-      <Dropdown>
+      <Dropdown onClick={e => e.stopPropagation()}>
         <List
           onChange={onChange}
           options={options}

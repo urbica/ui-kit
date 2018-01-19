@@ -5,12 +5,12 @@ import Container from './Container';
 import Item from './Item';
 
 const List = ({ value, onChange, options }) => {
-  if (!options || !options.length) {
-    return null;
+  if (!options.length) {
+    throw new Error('options is empty');
   }
 
   return (
-    <Container onClick={e => e.stopPropagation()}>
+    <Container>
       {
         options.map(option => (
           <Item

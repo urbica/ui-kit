@@ -1,4 +1,5 @@
 import styled from 'react-emotion';
+import PropTypes from 'prop-types';
 
 const borderColor = props => (props.isOpen ?
   'transparent transparent #000000 transparent' :
@@ -8,7 +9,7 @@ const borderWidth = props => (props.isOpen ?
   '0 5px 10px 5px' :
   '10px 5px 0 5px');
 
-export default styled.div`
+const Button = styled.div`
   position: relative;
   padding: 20px;
   user-select: none;
@@ -37,3 +38,9 @@ export default styled.div`
     }
   }
 `;
+
+Button.propTypes = {
+  isOpen: PropTypes.bool.isRequired
+};
+
+export default Button;

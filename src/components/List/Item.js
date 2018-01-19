@@ -1,4 +1,5 @@
 import styled from 'react-emotion';
+import PropTypes from 'prop-types';
 
 const Item = styled.li`
   position: relative;
@@ -34,5 +35,9 @@ const Item = styled.li`
     }
   }
 `;
+
+Item.propTypes = {
+  isActive: PropTypes.bool.isRequired
+};
 
 export default Item;
