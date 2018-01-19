@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button does not crash 1`] = `
-<Styled(button)>
+<div
+  className="css-f9ov9l css-c7tco60"
+>
   title
-</Styled(button)>
+</div>
 `;
