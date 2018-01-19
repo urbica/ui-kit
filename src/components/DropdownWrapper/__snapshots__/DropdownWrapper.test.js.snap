@@ -4,10 +4,10 @@ exports[`DropdownWrapper does not crash 1`] = `
 <Styled(div)
   innerRef={[Function]}
 >
-  <Component
+  <Styled(div)
     onClick={[Function]}
   >
     Button
-  </Component>
+  </Styled(div)>
 </Styled(div)>
 `;
