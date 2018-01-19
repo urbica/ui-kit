@@ -53,4 +53,5 @@ test('Select simulate click Button', () => {
   const DropdownWrap = wrapper.find(DropdownWrapper).first().dive();
   const btn = DropdownWrap.find(Button).first().dive();
   btn.setProps({ isOpen: true });
+  expect(toJson(wrapper)).toMatchSnapshot();
 });

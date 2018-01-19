@@ -28,7 +28,10 @@
   "jest": {
     "setupFiles": [
       "<rootDir>/jest.setup.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js"
+    }
   },
   "config": {
     "commitizen": {

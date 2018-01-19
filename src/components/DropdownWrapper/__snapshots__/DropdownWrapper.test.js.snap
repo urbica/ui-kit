@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select does not crash 1`] = `
+exports[`DropdownWrapper does not crash 1`] = `
 <Styled(div)
   innerRef={[Function]}
 >
-  <div />
+  <Component
+    onClick={[Function]}
+  >
+    Button
+  </Component>
 </Styled(div)>
 `;

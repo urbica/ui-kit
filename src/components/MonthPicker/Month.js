@@ -1,6 +1,7 @@
 import styled from 'react-emotion';
+import PropTypes from 'prop-types';
 
-export default styled.div`
+const Month = styled.div`
   width: calc((100% / 3) - 20px);
   text-align: center;
   padding: 5px;
@@ -15,3 +16,10 @@ export default styled.div`
     color: #223bf2;
   }
 `;
+
+Month.propTypes = {
+  isActive: PropTypes.bool,
+  isDisabled: PropTypes.bool
+};
+
+export default Month;
