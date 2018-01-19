@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import findIndex from '../../utils/findIndex';
+import InputRange from '../InputRange';
 
 // Style
 import Container from './Container';
 import Scale from './Scale';
 import Label from './Label';
-import Input from './Input';
+import Handle from './Handle';
 
 /**
  * @component
@@ -60,24 +61,27 @@ class Slider extends PureComponent {
   }
 
   _renderOption(option, index) {
+    const { ticks } = this.props;
+    const isVisible = !ticks || !!(index % ticks);
+
     return (
-      <Label
-        key={option.value}
-        role="button"
-        onClick={this.onScaleClick.bind(null, index)}
-      >
-        <span>{option.label}</span>
+      <Label key={option.value} role="button" onClick={this.onScaleClick.bind(null, index)}>
+        {isVisible && <span>{option.label}</span>}
       </Label>
     );
   }
 
   render() {
-    const { options } = this.props;
+    const { options, tooltip } = this.props;
+    const { index } = this.state;
+    const position = index && (index / (options.length - 1)) * 100;
+    const roundIndex = Math.round(index);
+    const label = options[roundIndex] && options[roundIndex].label;
 
     return (
-      <Container>
-        <Input
-          type="range"
+      <Container tooltip={tooltip}>
+        <Scale>{options.map(this._renderOption)}</Scale>
+        <InputRange
           value={this.state.index}
           onChange={this.onChange}
           onClick={this.onChangeEnd}
@@ -86,9 +90,7 @@ class Slider extends PureComponent {
           max={options.length - 1}
           step={0.01}
         />
-        <Scale length={options.length}>
-          {options.map(this._renderOption)}
-        </Scale>
+        {tooltip && <Handle position={position}>{label}</Handle>}
       </Container>
     );
   }
@@ -100,11 +102,15 @@ Slider.propTypes = {
     label: PropTypes.node
   })).isRequired,
   value: PropTypes.node,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  tooltip: PropTypes.bool,
+  ticks: PropTypes.number
 };
 
 Slider.defaultProps = {
-  value: PropTypes.null
+  value: PropTypes.null,
+  tooltip: true,
+  ticks: null
 };
 
 export default Slider;

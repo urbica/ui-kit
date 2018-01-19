@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Urbica UI Kit',
-  showCode: true,
+  showCode: false,
   showUsage: true,
   components: 'src/components/**/*.js',
   sections: [

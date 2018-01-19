@@ -1,20 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Slider does not crash 1`] = `
-<Styled(div)>
-  <Styled(input)
-    max={2}
-    onChange={[Function]}
-    onClick={[Function]}
-    onMouseLeave={[Function]}
-    onTouchEnd={[Function]}
-    step={0.01}
-    type="range"
-    value={-1}
-  />
-  <Styled(div)
-    length={3}
-  >
+<Styled(div)
+  tooltip={true}
+>
+  <Styled(div)>
     <Styled(div)
       key="one"
       onClick={[Function]}
@@ -43,5 +33,17 @@ exports[`Slider does not crash 1`] = `
       </span>
     </Styled(div)>
   </Styled(div)>
+  <Component
+    max={2}
+    onChange={[Function]}
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onTouchEnd={[Function]}
+    step={0.01}
+    value={-1}
+  />
+  <Styled(div)
+    position={-50}
+  />
 </Styled(div)>
 `;
