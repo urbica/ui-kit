@@ -29,7 +29,10 @@
   "jest": {
     "setupFiles": [
       "<rootDir>/jest.setup.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js"
+    }
   },
   "config": {
     "commitizen": {
@@ -38,6 +41,7 @@
   },
   "dependencies": {
     "emotion": "^8.0.12",
+    "react-click-outside": "^3.0.0",
     "react-emotion": "^8.0.12"
   },
   "devDependencies": {
@@ -73,7 +77,9 @@
     "react-docgen": "^2.20.0",
     "react-dom": "^16.2.0",
     "react-styleguidist": "^6.1.0",
+    "simulant": "^0.2.2",
     "standard-version": "^4.3.0",
+    "svg-url-loader": "^2.3.1",
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.2"
   }
