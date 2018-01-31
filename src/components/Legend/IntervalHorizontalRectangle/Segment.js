@@ -4,7 +4,7 @@ import styled from 'react-emotion';
 const Segment = styled.div`
   flex: 1;
   height: 15px;
-  background-color: ${({ color }) => color};
+  background: ${({ color }) => color};
 `;
 
 Segment.propTypes = {
