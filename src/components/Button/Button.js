@@ -19,7 +19,7 @@ const Button = styled.div`
   &:last-child {
     border-right: 1px solid #303d41;
   }
-`;
+;
 
 /**
  * @component
