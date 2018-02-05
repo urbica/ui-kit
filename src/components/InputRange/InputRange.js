@@ -15,7 +15,7 @@ const InputRange = styled.input`
 
   &::-webkit-slider-runnable-track {
       height: 2px;
-      background: #000000;
+      background: #90a4ae;
       border: none;
       border-radius: 1px;
   }
@@ -32,6 +32,7 @@ const InputRange = styled.input`
       &:hover {
         cursor: pointer;
       }
+      z-index: 5;
   }
 
   // Firefox
@@ -41,7 +42,7 @@ const InputRange = styled.input`
   
   &::-moz-range-track {
     height: 2px;
-    background: #000000;
+    background: #90a4ae;
     border: none;
     border-radius: 1px;
   }
