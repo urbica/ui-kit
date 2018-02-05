@@ -1,38 +1,93 @@
 import React, { PureComponent } from 'react';
 import 'react-dates/initialize';
-import { DayPickerRangeController } from 'react-dates';
-import { START_DATE } from 'react-dates/constants';
-import 'react-dates/lib/css/_datepicker.css';
+import DayPicker, { DateUtils } from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
 
+import YearPicker from '../YearPicker/YearPicker';
 import DropDownWrapper from '../DropdownWrapper/DropdownWrapper';
 import Button from '../Button/Button';
 import MenuOuter from './MenuOuter';
+
+const getInitialState = () => ({
+  from: null,
+  to: null,
+  enteredTo: null, // Keep track of the last day for mouseEnter.
+  currentMonth: new Date()
+});
+
+const isSelectingFirstDay = (from, to, day) => {
+  const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
+  const isRangeSelected = from && to;
+  return !from || isBeforeFirstDay || isRangeSelected;
+};
 
 class DatePicker extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      focusedInput: START_DATE,
-      startDate: null,
-      endDate: null
-    };
+    this.state = getInitialState();
 
-    this.onDatesChange = this.onDatesChange.bind(this);
-    this.onFocusChange = this.onFocusChange.bind(this);
+    this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleDayMouseEnter = this.handleDayMouseEnter.bind(this);
+    this.handleResetClick = this.handleResetClick.bind(this);
+    this.onChangeYear = this.onChangeYear.bind(this);
+    this.onMonthChange = this.onMonthChange.bind(this);
   }
 
-  onDatesChange({ startDate, endDate }) {
-    this.setState({ startDate, endDate });
+  handleDayClick(day) {
+    const { from, to } = this.state;
+    if (from && to && day >= from && day <= to) {
+      this.handleResetClick();
+      return;
+    }
+    if (isSelectingFirstDay(from, to, day)) {
+      this.setState({
+        from: day,
+        to: null,
+        enteredTo: null
+      });
+    } else {
+      this.setState({
+        to: day,
+        enteredTo: day
+      });
+    }
   }
 
-  onFocusChange(focusedInput) {
-    this.setState({ focusedInput: focusedInput || START_DATE });
+  onChangeYear(year) {
+    const newCurrentMonth = new Date(this.state.currentMonth);
+    newCurrentMonth.setFullYear(year);
+    this.setState({ currentMonth: newCurrentMonth });
   }
 
+  onMonthChange(currentMonth) {
+    this.setState({ currentMonth });
+  }
+
+  handleDayMouseEnter(day) {
+    const { from, to } = this.state;
+    if (!isSelectingFirstDay(from, to, day)) {
+      this.setState({
+        enteredTo: day
+      });
+    }
+  }
+
+  handleResetClick() {
+    this.setState(getInitialState());
+  }
 
   render() {
-    const { startDate, endDate, focusedInput } = this.state;
+    const {
+      from,
+      to,
+      enteredTo,
+      currentMonth
+    } = this.state;
+
+    const modifiers = { start: from, end: enteredTo };
+    const disabledDays = { before: this.state.from };
+    const selectedDays = [from, { from, to: enteredTo }];
 
     return (
       <DropDownWrapper
@@ -41,23 +96,31 @@ class DatePicker extends PureComponent {
             isOpen={isOpen}
             onClick={toggle}
           >
-            {startDate ? startDate.format('DD.MM.YYYY') : 'Выберите дату'}
-            {
-              endDate && endDate !== startDate &&
-                ` - ${endDate.format('DD.MM.YYYY')}`
-            }
+            {!from && !to && 'Please select the first day.'}
+            {from && !to && 'Please select the last day.'}
+            {from &&
+            to &&
+            `Selected from ${from.toLocaleDateString()} to
+                ${to.toLocaleDateString()}`}{' '}
           </Button>
         )}
       >
         <MenuOuter onClick={e => e.stopPropagation()}>
-          <DayPickerRangeController
-            startDate={startDate} // momentPropTypes.momentObj or null,
-            endDate={endDate} // momentPropTypes.momentObj or null,
-            focusedInput={focusedInput}
-            onDatesChange={this.onDatesChange}
-            onFocusChange={this.onFocusChange}
-            minimumNights={0}
-            noBorder
+          <YearPicker
+            value={currentMonth.getFullYear()}
+            onChange={this.onChangeYear}
+          />
+          <DayPicker
+            className="Range"
+            numberOfMonths={1}
+            month={currentMonth}
+            fromMonth={from}
+            selectedDays={selectedDays}
+            disabledDays={disabledDays}
+            onMonthChange={this.onMonthChange}
+            modifiers={modifiers}
+            onDayClick={this.handleDayClick}
+            onDayMouseEnter={this.handleDayMouseEnter}
           />
         </MenuOuter>
       </DropDownWrapper>

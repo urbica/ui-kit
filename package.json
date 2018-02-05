@@ -41,10 +41,11 @@
   },
   "dependencies": {
     "emotion": "^8.0.12",
+    "moment": "^2.20.1",
     "react-click-outside": "^3.0.0",
     "react-dates": "^16.2.0",
-    "react-emotion": "^8.0.12",
-    "moment": "^2.20.1"
+    "react-day-picker": "^7.0.7",
+    "react-emotion": "^8.0.12"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
