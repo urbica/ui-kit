@@ -1,5 +1,0 @@
-DoubleRangeSlider
-
-```js
-<DoubleRangeSlider />
-```

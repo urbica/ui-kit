@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DoubleRangeSlider does not crash 1`] = `
+<Styled(div)>
+  <Component
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onTouchEnd={[Function]}
+    step="0.01"
+    type="range"
+    value={0}
+  />
+  <Component
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onTouchEnd={[Function]}
+    step="0.01"
+    type="range"
+    value={100}
+  />
+  <Styled(div)
+    slider1={0}
+    slider2={0}
+  />
+</Styled(div)>
+`;

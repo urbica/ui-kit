@@ -9,3 +9,4 @@ export { default as DropdownWrapper } from './components/DropdownWrapper';
 export { default as MonthPicker } from './components/MonthPicker';
 export { default as YearPicker } from './components/YearPicker';
 export { default as Legend } from './components/Legend';
+export { default as RangeSlider } from './components/RangeSlider';

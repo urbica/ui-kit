@@ -21,7 +21,7 @@ module.exports = {
         'src/components/MonthPicker/MonthPicker.js',
         'src/components/YearPicker/YearPicker.js',
         'src/components/Select/Select.js',
-        'src/components/DoubleRangeSlider/DoubleRangeSlider.js'
+        'src/components/RangeSlider/RangeSlider.js'
       ]
     }
   ]
