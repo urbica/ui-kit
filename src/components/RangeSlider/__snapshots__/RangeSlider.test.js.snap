@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeSlider does not crash 1`] = `
+<Styled(div)>
+  <Component
+    fix={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onTouchEnd={[Function]}
+    step={0.01}
+    type="range"
+    value={0}
+  />
+  <Component
+    fix={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onTouchEnd={[Function]}
+    step={0.01}
+    type="range"
+    value={100}
+  />
+  <Styled(div)
+    percentLeft={0}
+    percentRight={0}
+  />
+</Styled(div)>
+`;
+
+exports[`RangeSlider render witch options 1`] = `
+<Styled(div)>
+  <Component
+    fix={false}
+    max={3}
+    min={0}
+    onChange={[Function]}
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onTouchEnd={[Function]}
+    step={0.01}
+    type="range"
+    value={-1}
+  />
+  <Component
+    fix={false}
+    max={3}
+    min={0}
+    onChange={[Function]}
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onTouchEnd={[Function]}
+    step={0.01}
+    type="range"
+    value={-1}
+  />
+  <Styled(div)
+    percentLeft={-33.33333333333333}
+    percentRight={133.33333333333331}
+  />
+</Styled(div)>
+`;

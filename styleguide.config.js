@@ -20,7 +20,8 @@ module.exports = {
         'src/components/DropdownWrapper/DropdownWrapper.js',
         'src/components/MonthPicker/MonthPicker.js',
         'src/components/YearPicker/YearPicker.js',
-        'src/components/Select/Select.js'
+        'src/components/Select/Select.js',
+        'src/components/RangeSlider/RangeSlider.js'
       ]
     }
   ]
