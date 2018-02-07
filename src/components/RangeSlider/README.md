@@ -24,7 +24,7 @@ const onChange = (value) => setState({ value: value.rightValue });
   <RangeSlider
     onChange={onChange}
     rightValue={state.value}
-    fixLeft
+    fixedLeft
   />
   Current value: {state.value}
 </div>
@@ -40,7 +40,7 @@ const onChange = (value) => setState({ value: value.leftValue });
   <RangeSlider
     onChange={onChange}
     leftValue={state.value}
-    fixRight
+    fixedRight
   />
   Current value: {state.value}
 </div>
