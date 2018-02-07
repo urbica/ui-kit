@@ -2,7 +2,7 @@ import styled from 'react-emotion';
 import PropTypes from 'prop-types';
 
 const Month = styled.div`
-  width: calc((100% / 3) - 20px);
+  flex: 1 0 calc((100% / 3) - 20px);
   text-align: center;
   padding: 5px;
   margin: 5px;
