@@ -1,8 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Slider from '../Slider';
 import Input from '../InputRange/InputRange';
+import Handle from '../Slider/Handle';
 
 const options = [
   { value: 'one', label: 'One' },
@@ -54,7 +55,22 @@ test('Slider simulate onClickScale', () => {
     value={options[0].value}
   />);
   const scaleButton = wrapper.find('[role="button"]').last();
+
   expect(wrapper.state('index')).toEqual(0);
   scaleButton.simulate('click');
   expect(wrapper.state('index')).toEqual(2);
+});
+
+test('Slider Handle change props', () => {
+  const wrapper = mount(<Slider
+    onChange={onChange}
+    options={options}
+    value={options[0].value}
+  />);
+
+  const scaleButton = wrapper.find('[role="button"]').last();
+
+  expect(wrapper.find(Handle).first().props().position).toEqual(0);
+  scaleButton.simulate('click');
+  expect(wrapper.find(Handle).first().props().position).toEqual(100);
 });

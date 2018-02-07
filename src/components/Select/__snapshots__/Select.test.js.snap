@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select does not crash 1`] = `
+<DropdownWrapper
+  opener={[Function]}
+>
+  <Styled(div)
+    onClick={[Function]}
+  >
+    <List
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "label": "One",
+            "value": "one",
+          },
+          Object {
+            "label": "Two",
+            "value": "two",
+          },
+          Object {
+            "label": "Three",
+            "value": "three",
+          },
+          Object {
+            "label": "Four",
+            "value": "four",
+          },
+        ]
+      }
+      value="one"
+    />
+  </Styled(div)>
+</DropdownWrapper>
+`;
+
+exports[`Select simulate click Button 1`] = `
+<DropdownWrapper
+  opener={[Function]}
+>
+  <Styled(div)
+    onClick={[Function]}
+  >
+    <List
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "label": "One",
+            "value": "one",
+          },
+          Object {
+            "label": "Two",
+            "value": "two",
+          },
+          Object {
+            "label": "Three",
+            "value": "three",
+          },
+          Object {
+            "label": "Four",
+            "value": "four",
+          },
+        ]
+      }
+      value="one"
+    />
+  </Styled(div)>
+</DropdownWrapper>
+`;

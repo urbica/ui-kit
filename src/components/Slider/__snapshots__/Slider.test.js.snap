@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Slider does not crash 1`] = `
-<Styled(div)>
-  <Styled(div)
-    length={3}
-  >
+<Styled(div)
+  tooltip={true}
+>
+  <Styled(div)>
     <Styled(div)
       key="one"
       onClick={[Function]}

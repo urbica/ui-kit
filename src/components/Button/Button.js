@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'react-emotion';
 
 const Button = styled.div`
@@ -10,12 +9,11 @@ const Button = styled.div`
   align-items: center;
   justify-content: center;
   
-  background-color: ${({ active }) => (active ? '#303d41' : 'white')};
-  color: ${({ active }) => (active ? '#f5f4f5' : '#303d41')};
+  background-color: 'white';
+  color: #303d41;
   
   &:hover {
     cursor: pointer;
-    background-color: ${({ active }) => (active ? '#303d41' : '#bfbfbf')};
   }
 
   &:last-child {
@@ -26,5 +24,4 @@ const Button = styled.div`
 /**
  * @component
  */
-
-export default props => <Button {...props} />;
+export default Button;

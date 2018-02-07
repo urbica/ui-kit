@@ -7,7 +7,7 @@ import InputRange from '../InputRange';
 import Container from './Container';
 import Scale from './Scale';
 import Label from './Label';
-import ValueBubbles from './ValueBubbles';
+import Handle from './Handle';
 
 /**
  * @component
@@ -65,15 +65,8 @@ class Slider extends PureComponent {
     const isVisible = !ticks || !!(index % ticks);
 
     return (
-      <Label
-        key={option.value}
-        role="button"
-        onClick={this.onScaleClick.bind(null, index)}
-      >
-        {
-          isVisible &&
-            <span>{option.label}</span>
-        }
+      <Label key={option.value} role="button" onClick={this.onScaleClick.bind(null, index)}>
+        {isVisible && <span>{option.label}</span>}
       </Label>
     );
   }
@@ -86,10 +79,8 @@ class Slider extends PureComponent {
     const label = options[roundIndex] && options[roundIndex].label;
 
     return (
-      <Container>
-        <Scale length={options.length}>
-          {options.map(this._renderOption)}
-        </Scale>
+      <Container tooltip={tooltip}>
+        <Scale>{options.map(this._renderOption)}</Scale>
         <InputRange
           value={this.state.index}
           onChange={this.onChange}
@@ -99,12 +90,7 @@ class Slider extends PureComponent {
           max={options.length - 1}
           step={0.01}
         />
-        {
-          tooltip &&
-            <ValueBubbles position={position}>
-              {label}
-            </ValueBubbles>
-        }
+        {tooltip && <Handle position={position}>{label}</Handle>}
       </Container>
     );
   }
