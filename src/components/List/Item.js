@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Item = styled.li`
   position: relative;
   display: flex;
+  font-family: 'Noto Sans', serif;
   list-style-type: none;
   height: 50px;
   padding: 10px 20px;
