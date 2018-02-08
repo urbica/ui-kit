@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+
 import Container from './Container';
 
 class DropdownWrapper extends PureComponent {
@@ -6,12 +8,16 @@ class DropdownWrapper extends PureComponent {
     super(props);
 
     this.state = {
-      isOpen: false
+      isOpen: this.props.isOpen
     };
 
     this.toggle = this.toggle.bind(this);
     this.setChildNodeRef = this.setChildNodeRef.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setProps({ isOpen: nextProps.isOpen });
   }
 
   toggle() {
@@ -45,5 +51,13 @@ class DropdownWrapper extends PureComponent {
     );
   }
 }
+
+DropdownWrapper.propTypes = {
+  isOpen: PropTypes.bool
+};
+
+DropdownWrapper.defaultProps = {
+  isOpen: false
+};
 
 export default DropdownWrapper;
