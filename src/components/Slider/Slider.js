@@ -72,7 +72,7 @@ class Slider extends PureComponent {
   }
 
   render() {
-    const { options, tooltip } = this.props;
+    const { options, tooltip, scale } = this.props;
     const { index } = this.state;
     const position = index && (index / (options.length - 1)) * 100;
     const roundIndex = Math.round(index);
@@ -80,7 +80,10 @@ class Slider extends PureComponent {
 
     return (
       <Container tooltip={tooltip}>
-        <Scale>{options.map(this._renderOption)}</Scale>
+        {
+          scale &&
+            <Scale>{options.map(this._renderOption)}</Scale>
+        }
         <InputRange
           value={this.state.index}
           onChange={this.onChange}
@@ -103,6 +106,7 @@ Slider.propTypes = {
   })).isRequired,
   value: PropTypes.node,
   onChange: PropTypes.func.isRequired,
+  scale: PropTypes.bool,
   tooltip: PropTypes.bool,
   ticks: PropTypes.number
 };
@@ -110,6 +114,7 @@ Slider.propTypes = {
 Slider.defaultProps = {
   value: PropTypes.null,
   tooltip: true,
+  scale: true,
   ticks: null
 };
 
