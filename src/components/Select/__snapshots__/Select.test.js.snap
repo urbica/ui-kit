@@ -2,6 +2,7 @@
 
 exports[`Select does not crash 1`] = `
 <DropdownWrapper
+  isOpen={false}
   opener={[Function]}
 >
   <Styled(div)
@@ -37,6 +38,7 @@ exports[`Select does not crash 1`] = `
 
 exports[`Select simulate click Button 1`] = `
 <DropdownWrapper
+  isOpen={false}
   opener={[Function]}
 >
   <Styled(div)

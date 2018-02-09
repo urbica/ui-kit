@@ -44,6 +44,7 @@ exports[`Slider does not crash 1`] = `
   />
   <Styled(div)
     position={-50}
+    tooltipPosition="bottom"
   />
 </Styled(div)>
 `;
