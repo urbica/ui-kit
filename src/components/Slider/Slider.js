@@ -113,12 +113,13 @@ class Slider extends PureComponent {
   }
 }
 
+/* eslint-disable react/forbid-prop-types */
 Slider.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.any.isRequired,
     label: PropTypes.node
   })).isRequired,
-  value: PropTypes.node,
+  value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
   tooltip: PropTypes.bool,
   tooltipPosition: PropTypes.oneOf(['bottom', 'top']),
