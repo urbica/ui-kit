@@ -81,7 +81,7 @@ class Slider extends PureComponent {
 
     const { index } = this.state;
     const visibleScale = !ticks || ticks.length !== 0;
-    const position = index && (index / (options.length - 1)) * 100;
+    const position = index ? (index / (options.length - 1)) * 100 : 0;
     const roundIndex = Math.round(index);
     const label = options[roundIndex] && options[roundIndex].label;
 
@@ -115,7 +115,7 @@ class Slider extends PureComponent {
 
 Slider.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.node.isRequired,
+    value: PropTypes.any.isRequired,
     label: PropTypes.node
   })).isRequired,
   value: PropTypes.node,
