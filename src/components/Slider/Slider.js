@@ -72,8 +72,15 @@ class Slider extends PureComponent {
   }
 
   render() {
-    const { options, tooltip, scale } = this.props;
+    const {
+      tooltipPosition,
+      tooltip,
+      options,
+      ticks
+    } = this.props;
+
     const { index } = this.state;
+    const visibleScale = !ticks || ticks.length !== 0;
     const position = index && (index / (options.length - 1)) * 100;
     const roundIndex = Math.round(index);
     const label = options[roundIndex] && options[roundIndex].label;
@@ -81,7 +88,7 @@ class Slider extends PureComponent {
     return (
       <Container tooltip={tooltip}>
         {
-          scale &&
+          visibleScale &&
             <Scale>{options.map(this._renderOption)}</Scale>
         }
         <InputRange
@@ -93,7 +100,14 @@ class Slider extends PureComponent {
           max={options.length - 1}
           step={0.01}
         />
-        {tooltip && <Handle position={position}>{label}</Handle>}
+        {
+          tooltip &&
+            <Handle
+              position={position}
+              tooltipPosition={tooltipPosition}
+            >
+              {label}
+            </Handle>}
       </Container>
     );
   }
@@ -106,15 +120,15 @@ Slider.propTypes = {
   })).isRequired,
   value: PropTypes.node,
   onChange: PropTypes.func.isRequired,
-  scale: PropTypes.bool,
   tooltip: PropTypes.bool,
+  tooltipPosition: PropTypes.oneOf(['bottom', 'top']),
   ticks: PropTypes.number
 };
 
 Slider.defaultProps = {
   value: PropTypes.null,
   tooltip: true,
-  scale: true,
+  tooltipPosition: 'bottom',
   ticks: null
 };
 
