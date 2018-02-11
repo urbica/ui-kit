@@ -7,26 +7,27 @@ class DropdownWrapper extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
     this.setChildNodeRef = this.setChildNodeRef.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
-  toggle() {
-    if (!this.props.isOpen) {
-      // attach/remove event handler
-      document.addEventListener('click', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
-    }
+  componentWillReceiveProps(nextProps) {
+    const { isOpen } = nextProps;
+    if (isOpen !== this.props.isOpen) {
+      if (isOpen) {
+        document.addEventListener('click', this.handleOutsideClick, false);
+      } else {
+        document.removeEventListener('click', this.handleOutsideClick, false);
+      }
 
-    this.props.onChange();
+      this.props.onChange();
+    }
   }
 
   handleOutsideClick(e) {
     const isDescendantOfRoot = this.childNode && this.childNode.contains(e.target);
     if (!isDescendantOfRoot) {
-      this.toggle();
+      this.props.onChange();
     }
   }
 
@@ -37,7 +38,7 @@ class DropdownWrapper extends PureComponent {
   render() {
     return (
       <Container innerRef={this.setChildNodeRef}>
-        {this.props.opener(this.toggle)}
+        {this.props.opener}
         {this.props.isOpen && this.props.children}
       </Container>
     );
@@ -45,12 +46,18 @@ class DropdownWrapper extends PureComponent {
 }
 
 DropdownWrapper.propTypes = {
+  opener: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   isOpen: PropTypes.bool,
   onChange: PropTypes.func
 };
 
 DropdownWrapper.defaultProps = {
   isOpen: false,
+  children: null,
   onChange: () => {}
 };
 
