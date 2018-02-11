@@ -17,7 +17,7 @@ class DropdownWrapper extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setProps({ isOpen: nextProps.isOpen });
+    this.setState({ isOpen: nextProps.isOpen });
   }
 
   toggle() {
