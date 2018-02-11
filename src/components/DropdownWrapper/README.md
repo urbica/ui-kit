@@ -1,4 +1,4 @@
-DropdownWrapper
+DropdownWrapper + props
 
 ```js
 initialState = {
@@ -12,6 +12,19 @@ const onChange = () => setState({ isOpen: !state.isOpen });
     opener={() => <div onClick={onChange}>{state.isOpen ? 'Close' : 'Open'}</div>}
     onChange={onChange}
     isOpen={state.isOpen}
+  >
+    children
+  </DropdownWrapper>
+</div>
+```
+
+DropdownWrapper
+
+```js
+
+<div style={{ width: 300 }}>
+  <DropdownWrapper
+    opener={(toggle, isOpen) => <div onClick={toggle}>{isOpen ? 'Close' : 'Open'}</div>}
   >
     children
   </DropdownWrapper>
