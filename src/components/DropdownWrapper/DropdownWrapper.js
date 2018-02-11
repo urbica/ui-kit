@@ -28,6 +28,7 @@ class DropdownWrapper extends PureComponent {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
 
+    this.props.onChange(!this.state.isOpen);
     this.setState({ isOpen: !this.state.isOpen });
   }
 
@@ -53,11 +54,13 @@ class DropdownWrapper extends PureComponent {
 }
 
 DropdownWrapper.propTypes = {
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 DropdownWrapper.defaultProps = {
-  isOpen: false
+  isOpen: false,
+  onChange: () => {}
 };
 
 export default DropdownWrapper;
