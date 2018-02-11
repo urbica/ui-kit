@@ -20,7 +20,7 @@ class DropdownWrapper extends PureComponent {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
 
-    this.props.onChange(!this.props.isOpen);
+    this.props.onChange();
   }
 
   handleOutsideClick(e) {

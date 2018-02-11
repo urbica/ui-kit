@@ -5,7 +5,7 @@ initialState = {
   isOpen: false
 };
 
-const onChange = (isOpen) => setState({ isOpen });
+const onChange = () => setState({ isOpen: !state.isOpen });
 
 <div style={{ width: 300 }}>
   <DropdownWrapper
