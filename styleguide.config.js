@@ -19,6 +19,7 @@ module.exports = {
         'src/components/List/List.js',
         'src/components/DropdownWrapper/DropdownWrapper.js',
         'src/components/MonthPicker/MonthPicker.js',
+        'src/components/MonthRangePicker/MonthRangePicker.js',
         'src/components/YearPicker/YearPicker.js',
         'src/components/Select/Select.js'
       ]
