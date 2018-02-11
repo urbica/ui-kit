@@ -38,7 +38,7 @@ class DropdownWrapper extends PureComponent {
   render() {
     return (
       <Container innerRef={this.setChildNodeRef}>
-        {this.props.opener}
+        {this.props.opener()}
         {this.props.isOpen && this.props.children}
       </Container>
     );
@@ -46,7 +46,7 @@ class DropdownWrapper extends PureComponent {
 }
 
 DropdownWrapper.propTypes = {
-  opener: PropTypes.node.isRequired,
+  opener: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

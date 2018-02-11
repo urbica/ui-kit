@@ -7,11 +7,9 @@ initialState = {
 
 const onChange = () => setState({ isOpen: !state.isOpen });
 
-const Button = <div onClick={onChange}>{state.isOpen ? 'Close' : 'Open'}</div>;
-
 <div style={{ width: 300 }}>
   <DropdownWrapper
-    opener={Button}
+    opener={() => <div onClick={onChange}>{state.isOpen ? 'Close' : 'Open'}</div>}
     onChange={onChange}
     isOpen={state.isOpen}
   >
