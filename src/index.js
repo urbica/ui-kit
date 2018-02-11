@@ -7,5 +7,6 @@ export { default as Select } from './components/Select';
 export { default as List } from './components/List';
 export { default as DropdownWrapper } from './components/DropdownWrapper';
 export { default as MonthPicker } from './components/MonthPicker';
+export { default as MonthRangePicker } from './components/MonthRangePicker';
 export { default as YearPicker } from './components/YearPicker';
 export { default as Legend } from './components/Legend';
