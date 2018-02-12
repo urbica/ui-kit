@@ -24,10 +24,12 @@ class DropdownWrapper extends PureComponent {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (nextState.isOpen) {
-      document.addEventListener('click', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
+    if (nextState.isOpen !== this.state.isOpen) {
+      if (nextState.isOpen) {
+        document.addEventListener('click', this.handleOutsideClick, false);
+      } else {
+        document.removeEventListener('click', this.handleOutsideClick, false);
+      }
     }
   }
 
@@ -37,10 +39,14 @@ class DropdownWrapper extends PureComponent {
 
   handleOutsideClick(e) {
     const isDescendantOfRoot = this.childNode && this.childNode.contains(e.target);
+
     if (!isDescendantOfRoot) {
       this.toggle();
       this.props.onChange();
     }
+
+    this.toggle();
+    this.props.onChange();
   }
 
   setChildNodeRef(ref) {

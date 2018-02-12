@@ -23,6 +23,10 @@ class MonthRangePicker extends PureComponent {
     this.onMonthChange = this.onMonthChange.bind(this);
   }
 
+  componentWillReceiveProps({ startMonth, endMonth }) {
+    this.setState({ startMonth, endMonth });
+  }
+
   onMonthChange(month) {
     const { focused, startMonth, endMonth } = this.state;
 

@@ -24,8 +24,8 @@ MonthRangePicker no selected
 
 ```js
 initialState = {
-  startMonth: null,
-  endMonth: null
+  startMonth: 0,
+  endMonth: 11
 };
 
 const changeMonth = ({ startMonth, endMonth }) => {
