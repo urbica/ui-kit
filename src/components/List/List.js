@@ -4,38 +4,31 @@ import PropTypes from 'prop-types';
 import Container from './Container';
 import Item from './Item';
 
-const List = ({ value, onChange, options }) => {
-  if (!options.length) {
-    throw new Error('options is empty');
-  }
-
-  return (
-    <Container>
-      {
-        options.map(option => (
-          <Item
-            key={option.value}
-            isActive={value === option.value}
-            onClick={onChange.bind(null, option)}
-          >
-            {option.label}
-          </Item>
-        ))
-      }
-    </Container>
-  );
-};
+const List = ({ items, onClick }) => (
+  <Container>
+    {items.map(item => (
+      <Item
+        key={item.value}
+        highlight={item.highlight}
+        onClick={onClick && onClick.bind(null, item)}
+      >
+        {item.label}
+      </Item>
+    ))}
+  </Container>
+);
 
 List.propTypes = {
-  value: PropTypes.node,
-  options: PropTypes.arrayOf(PropTypes.object),
-  onChange: PropTypes.func
+  onClick: PropTypes.func,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    label: PropTypes.string.isRequired,
+    highlight: PropTypes.bool
+  })).isRequired
 };
 
 List.defaultProps = {
-  value: null,
-  options: [],
-  onChange: () => {}
+  onClick: null
 };
 
 export default List;

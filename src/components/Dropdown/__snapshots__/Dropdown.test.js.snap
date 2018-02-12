@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select does not crash 1`] = `
-<withState(withHandlers(Dropdown))
+exports[`Dropdown does not crash 1`] = `
+<withHandlers(Dropdown)
   renderContent={[Function]}
   renderHandler={[Function]}
+  toggle={[Function]}
+  toggledOn={false}
 />
 `;

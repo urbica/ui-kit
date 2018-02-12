@@ -1,20 +1,12 @@
-Select
+Simple Items List with highlight support
 
 ```js
-initialState = {
-  value: 'two'
-};
-
-const options = [
-  { value: 'one', label: 'One' },
-  { value: 'two', label: 'Two' },
-  { value: 'three', label: 'Three' },
-  { value: 'four', label: 'Four' }
+const items = [
+  { value: "one", label: "One", highlight: true },
+  { value: "two", label: "Two" },
+  { value: "three", label: "Three", highlight: true },
+  { value: "four", label: "Four" }
 ];
 
-<List
-  onChange={(option) => setState({ value: option.value })}
-  options={options}
-  value={state.value}
-/>
+<List items={items} />;
 ```

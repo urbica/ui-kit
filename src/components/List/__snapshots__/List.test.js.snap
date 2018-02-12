@@ -3,28 +3,28 @@
 exports[`List does not crash 1`] = `
 <Styled(ul)>
   <Styled(li)
-    isActive={true}
+    highlight={false}
     key="one"
     onClick={[Function]}
   >
     One
   </Styled(li)>
   <Styled(li)
-    isActive={false}
+    highlight={false}
     key="two"
     onClick={[Function]}
   >
     Two
   </Styled(li)>
   <Styled(li)
-    isActive={false}
+    highlight={false}
     key="three"
     onClick={[Function]}
   >
     Three
   </Styled(li)>
   <Styled(li)
-    isActive={false}
+    highlight={false}
     key="four"
     onClick={[Function]}
   >

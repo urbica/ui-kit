@@ -40,16 +40,16 @@
     }
   },
   "dependencies": {
-    "emotion": "^8.0.12",
-    "react-click-outside": "^3.0.0",
-    "react-emotion": "^8.0.12"
+    "emotion": "^9.0.0",
+    "react-emotion": "^9.0.0",
+    "recompose": "^0.26.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
-    "babel-jest": "^22.0.4",
+    "babel-jest": "^22.2.2",
     "babel-loader": "^7.1.2",
-    "babel-plugin-emotion": "^8.0.12",
+    "babel-plugin-emotion": "^9.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -60,27 +60,27 @@
     "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.0",
-    "eslint": "^4.15.0",
+    "enzyme-to-json": "^3.3.1",
+    "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-flowtype": "^2.41.0",
+    "eslint-plugin-flowtype": "^2.43.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react": "^7.6.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "flow-bin": "^0.65.0",
     "flow-coverage-report": "^0.4.0",
     "gh-pages": "^1.1.0",
-    "jest": "^22.0.5",
+    "jest": "^22.2.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-docgen": "^2.20.0",
     "react-dom": "^16.2.0",
-    "react-styleguidist": "^6.1.0",
+    "react-styleguidist": "^6.2.3",
     "simulant": "^0.2.2",
     "standard-version": "^4.3.0",
     "svg-url-loader": "^2.3.1",
-    "webpack": "^3.10.0",
-    "webpack-bundle-analyzer": "^2.9.2"
+    "webpack": "^3.11.0",
+    "webpack-bundle-analyzer": "^2.10.0"
   }
 }

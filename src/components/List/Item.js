@@ -11,7 +11,7 @@ const Item = styled.li`
   box-sizing: border-box;
   align-items: center;
   user-select: none;
-  background: ${props => (props.isActive ? '#f5f4f5' : '#FFFFFF')};
+  background: ${props => (props.highlight ? '#f5f4f5' : '#FFFFFF')};
 
   &:after {
     position: absolute;
@@ -20,7 +20,7 @@ const Item = styled.li`
     right: 0;
     height: 1px;
     margin: 0 10px;
-    background: ${props => (props.isActive ? '#f5f4f5' : '#faf9fa')};
+    background: ${props => (props.highlight ? '#f5f4f5' : '#faf9fa')};
     content: ' ';
   }
 
@@ -38,7 +38,11 @@ const Item = styled.li`
 `;
 
 Item.propTypes = {
-  isActive: PropTypes.bool.isRequired
+  highlight: PropTypes.bool
+};
+
+Item.defaultProps = {
+  highlight: false
 };
 
 export default Item;
