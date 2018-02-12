@@ -1,53 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'recompose';
 
+import Dropdown from '../Dropdown';
+import List from '../List';
+import Button from './Button';
+import Content from './Content';
 import findIndex from '../../utils/findIndex';
 
-import DropDownWrapper from '../DropdownWrapper/DropdownWrapper';
-import List from '../List/List';
-import Button from './Button';
-import Dropdown from './Dropdown';
+const Select = ({ value, ...props }) => {
+  const options = [...props.options];
 
-const Select = ({ value, options, onChange }) => {
-  if (!options.length) {
-    throw new Error('options is empty');
+  let currentOption;
+  if (value !== null) {
+    const index = findIndex(options, o => o.value === value);
+    if (index !== -1) {
+      options[index] = Object.assign({}, options[index], { highlight: true });
+      currentOption = options[index];
+    }
   }
 
-  const index = findIndex(options, o => o.value === value);
-  const option = index !== -1 ? options[index] : options[0];
-
   return (
-    <DropDownWrapper
-      opener={(toggle, isOpen) => (
-        <Button
-          isOpen={isOpen}
-          onClick={toggle}
-        >
-          {option.label}
+    <Dropdown
+      renderHandler={({ toggle, toggledOn }) => (
+        <Button isOpen={toggledOn} onClick={toggle}>
+          {currentOption && currentOption.label}
         </Button>
       )}
-    >
-      <Dropdown onClick={e => e.stopPropagation()}>
-        <List
-          onChange={onChange}
-          options={options}
-          value={value}
-        />
-      </Dropdown>
-    </DropDownWrapper>
+      renderContent={({ hide }) => (
+        <Content>
+          <List items={options} onClick={compose(hide, props.onChange)} />
+        </Content>
+      )}
+    />
   );
 };
 
+const ValuePropType = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
+
+const OptionPropType = PropTypes.shape({
+  value: ValuePropType.isRequired,
+  label: PropTypes.string.isRequired
+});
+
 Select.propTypes = {
-  value: PropTypes.node,
-  options: PropTypes.arrayOf(PropTypes.object),
-  onChange: PropTypes.func
+  value: ValuePropType,
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(OptionPropType).isRequired
 };
 
 Select.defaultProps = {
-  value: null,
-  options: [],
-  onChange: () => {}
+  value: null
 };
 
 export default Select;

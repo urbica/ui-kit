@@ -17,7 +17,7 @@ module.exports = {
         'src/components/Slider/Slider.js',
         'src/components/Legend/Legend.js',
         'src/components/List/List.js',
-        'src/components/DropdownWrapper/DropdownWrapper.js',
+        'src/components/Dropdown/Dropdown.js',
         'src/components/MonthPicker/MonthPicker.js',
         'src/components/YearPicker/YearPicker.js',
         'src/components/Select/Select.js'
