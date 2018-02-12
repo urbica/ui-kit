@@ -44,9 +44,6 @@ class DropdownWrapper extends PureComponent {
       this.toggle();
       this.props.onChange();
     }
-
-    this.toggle();
-    this.props.onChange();
   }
 
   setChildNodeRef(ref) {
