@@ -2,41 +2,29 @@ MonthRangePicker
 
 ```js
 initialState = {
-  startMonth: 2,
-  endMonth: 5
+  year: new Date().getFullYear(),
+  startDate: new Date(),
+  endDate: new Date()
 };
 
-const changeMonth = ({ startMonth, endMonth }) => {
-  setState({ startMonth, endMonth });
+const changeMonth = ({ startDate, endDate }) => {
+  setState({ startDate, endDate });
 };
+
+const changeYear = (year) => setState({ year });
+
+console.log(state.startDate);
+console.log(state.endDate);
 
 <div>
-  <div>{state.startMonth} {state.endMonth}</div>
-  <MonthRangePicker
-    startMonth={state.startMonth}
-    endMonth={state.endMonth}
-    onChange={changeMonth}
+  <YearPicker
+    onChange={changeYear}
+    value={state.year}
   />
-</div>
-```
-
-MonthRangePicker no selected
-
-```js
-initialState = {
-  startMonth: 0,
-  endMonth: 11
-};
-
-const changeMonth = ({ startMonth, endMonth }) => {
-  setState({ startMonth, endMonth });
-};
-
-<div>
-  <div>{state.startMonth} {state.endMonth}</div>
   <MonthRangePicker
-    startMonth={state.startMonth}
-    endMonth={state.endMonth}
+    startDate={state.startDate}
+    endDate={state.endDate}
+    activeYear={state.year}
     onChange={changeMonth}
   />
 </div>
