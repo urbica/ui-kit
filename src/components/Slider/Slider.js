@@ -51,13 +51,15 @@ class Slider extends PureComponent {
 
   onChangeEnd() {
     const index = Math.round(this.state.index);
+    const { value } = this.props.options[index];
     this.setState({ index });
+    this.props.onChangeEnd(value);
   }
 
   onScaleClick(index) {
     this.setState({ index });
     const { value } = this.props.options[index];
-    this.props.onChange(value);
+    this.props.onChangeEnd(value);
   }
 
   _renderOption(option, index) {
@@ -121,6 +123,7 @@ Slider.propTypes = {
   })).isRequired,
   value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
+  onChangeEnd: PropTypes.func.isRequired,
   tooltip: PropTypes.bool,
   tooltipPosition: PropTypes.oneOf(['bottom', 'top']),
   ticks: PropTypes.number
