@@ -2,6 +2,7 @@ import styled from 'react-emotion';
 
 export default styled.div`
   position: relative;
+  width: 28px;
   height: 16px;
   text-align: center;
   outline: none;

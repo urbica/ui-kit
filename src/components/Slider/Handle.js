@@ -7,5 +7,5 @@ export default styled.div`
 
   text-align: center;
 
-  transform: translateX(${({ position }) => ((position / 100) * -28)}px);
+  transform: translateX(${({ position }) => -position}%);
 `;
