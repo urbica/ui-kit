@@ -24,6 +24,7 @@ const onChange = (value) => setState({ value });
 Slider without tooltip
 
 ```js
+
 const options = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
