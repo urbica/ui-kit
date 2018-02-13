@@ -7,7 +7,7 @@ import InputRange from '../InputRange';
 import Container from './Container';
 import Scale from './Scale';
 import Label from './Label';
-import Handle from './Handle';
+import Handle from './Handle/Handle';
 
 /**
  * @component
@@ -106,9 +106,9 @@ class Slider extends PureComponent {
             <Handle
               position={position}
               tooltipPosition={tooltipPosition}
-            >
-              {label}
-            </Handle>}
+              label={label}
+            />
+        }
       </Container>
     );
   }
