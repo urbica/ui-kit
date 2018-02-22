@@ -139,17 +139,11 @@ class RangeSlider extends PureComponent {
 RangeSlider.propTypes = {
   leftValue: PropTypes.oneOfType([
     PropTypes.number,
-    PropTypes.shape({
-      value: PropTypes.node.isRequired,
-      label: PropTypes.node
-    })
+    PropTypes.node
   ]),
   rightValue: PropTypes.oneOfType([
     PropTypes.number,
-    PropTypes.shape({
-      value: PropTypes.node.isRequired,
-      label: PropTypes.node
-    })
+    PropTypes.node
   ]),
   options: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.node.isRequired,
