@@ -6,7 +6,7 @@ const Item = styled.li`
   display: flex;
   font-family: 'Noto Sans', serif;
   list-style-type: none;
-  height: 50px;
+  height: auto;
   padding: 10px 20px;
   box-sizing: border-box;
   align-items: center;
