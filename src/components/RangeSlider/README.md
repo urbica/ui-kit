@@ -78,15 +78,14 @@ RangeSlider with tick
 
 ```js
 const options = [
-  { value: 'one', label: 'One' },
-  { value: 'two', label: 'Two' },
-  { value: 'three', label: 'Three' },
-  { value: 'four', label: 'Four' }
+  { label: '1990 год', value: ['<=', 'year_of_built', 1990] },
+  { label: '2000 год', value: ['<=', 'year_of_built', 2000] },
+  { label: '2014 год', value: ['<=', 'year_of_built', 2014] }
 ];
 
 initialState = {
   leftValue: options[0].value,
-  rightValue: options[2].value
+  rightValue: null
 };
 
 const onChange = (value) => setState(value);
@@ -94,7 +93,7 @@ const onChange = (value) => setState(value);
 <div>
   <RangeSlider
     onChange={onChange}
-    leftValue={state.leftValue}
+    fixedLeft
     rightValue={state.rightValue}
     options={options}
     
