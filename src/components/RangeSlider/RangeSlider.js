@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import InputRange from '../InputRange/InputRange';
 import Container from './Container';
 import Line from './Line';
+import Label from './Label';
+import Scale from './Scale';
+import Span from './Span';
 import findIndex from '../../utils/findIndex';
 
 class RangeSlider extends PureComponent {
@@ -17,6 +20,7 @@ class RangeSlider extends PureComponent {
     this.onChangeLeft = this.onChangeLeft.bind(this);
     this.onChangeRight = this.onChangeRight.bind(this);
     this.onChangeEnd = this.onChangeEnd.bind(this);
+    this._renderOption = this._renderOption.bind(this);
   }
 
   componentWillMount() {
@@ -86,13 +90,29 @@ class RangeSlider extends PureComponent {
     });
   }
 
+  _renderOption(option, index) {
+    const { ticks } = this.props;
+    const { leftValue, rightValue } = this.state;
+    const isVisible = !ticks || !!(index % ticks);
+
+    const isActive = leftValue <= index && index <= rightValue;
+    console.log(leftValue, index, rightValue);
+
+    return (
+      <Label key={option.value} role="button">
+        {isVisible && <Span isActive={isActive}>{option.label}</Span>}
+      </Label>
+    );
+  }
+
   render() {
     const { leftValue, rightValue } = this.state;
     const {
       step,
       fixedLeft,
       fixedRight,
-      options
+      options,
+      ticks
     } = this.props;
 
     const left = options ? 0 : this.props.left;
@@ -100,9 +120,14 @@ class RangeSlider extends PureComponent {
     const range = right - left;
     const percentLeft = ((leftValue - left) / range) * 100;
     const percentRight = ((right - rightValue) / range) * 100;
+    const visibleScale = (!ticks || ticks.length !== 0) && options;
 
     return (
-      <Container>
+      <Container visibleScale={visibleScale}>
+        {
+          visibleScale &&
+            <Scale>{options.map(this._renderOption)}</Scale>
+        }
         <InputRange
           onChange={this.onChangeLeft}
           value={fixedLeft ? 0 : leftValue}
@@ -154,7 +179,8 @@ RangeSlider.propTypes = {
   left: PropTypes.number,
   right: PropTypes.number,
   fixedLeft: PropTypes.bool,
-  fixedRight: PropTypes.bool
+  fixedRight: PropTypes.bool,
+  ticks: PropTypes.number
 };
 
 RangeSlider.defaultProps = {
@@ -166,6 +192,7 @@ RangeSlider.defaultProps = {
   right: 100,
   fixedLeft: false,
   fixedRight: false,
+  ticks: null,
   onChange: () => {}
 };
 

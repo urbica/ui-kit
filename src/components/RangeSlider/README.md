@@ -73,3 +73,32 @@ const onChange = (value) => setState(value);
   Current value: {state.leftValue}, {state.rightValue}
 </div>
 ```
+
+RangeSlider with tick
+
+```js
+const options = [
+  { value: 'one', label: 'One' },
+  { value: 'two', label: 'Two' },
+  { value: 'three', label: 'Three' },
+  { value: 'four', label: 'Four' }
+];
+
+initialState = {
+  leftValue: options[0].value,
+  rightValue: options[2].value
+};
+
+const onChange = (value) => setState(value);
+
+<div>
+  <RangeSlider
+    onChange={onChange}
+    leftValue={state.leftValue}
+    rightValue={state.rightValue}
+    options={options}
+    
+  />
+  Current value: {state.leftValue}, {state.rightValue}
+</div>
+```
