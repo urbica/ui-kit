@@ -1,8 +1,6 @@
 import styled from 'react-emotion';
 
 export default styled.div`
-  position: relative;
-  width: auto;
   text-align: center;
   outline: none;
   cursor: pointer;

@@ -6,7 +6,7 @@ import Container from './Container';
 import Line from './Line';
 import Label from './Label';
 import Scale from './Scale';
-import Span from './Span';
+import Text from './Text';
 import findIndex from '../../utils/findIndex';
 
 class RangeSlider extends PureComponent {
@@ -99,8 +99,8 @@ class RangeSlider extends PureComponent {
     console.log(leftValue, index, rightValue);
 
     return (
-      <Label key={option.value} role="button">
-        {isVisible && <Span isActive={isActive}>{option.label}</Span>}
+      <Label key={option.value}>
+        {isVisible && <Text isActive={isActive}>{option.label}</Text>}
       </Label>
     );
   }
@@ -122,12 +122,9 @@ class RangeSlider extends PureComponent {
     const percentRight = ((right - rightValue) / range) * 100;
     const visibleScale = (!ticks || ticks.length !== 0) && options;
 
-    return (
+    return [
+      visibleScale ? <Scale>{options.map(this._renderOption)}</Scale> : null,
       <Container visibleScale={visibleScale}>
-        {
-          visibleScale &&
-            <Scale>{options.map(this._renderOption)}</Scale>
-        }
         <InputRange
           onChange={this.onChangeLeft}
           value={fixedLeft ? 0 : leftValue}
@@ -157,7 +154,7 @@ class RangeSlider extends PureComponent {
           percentRight={fixedRight ? 0 : percentRight}
         />
       </Container>
-    );
+    ];
   }
 }
 
