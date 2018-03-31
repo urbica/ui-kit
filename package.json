@@ -76,7 +76,7 @@
     "react": "^16.2.0",
     "react-docgen": "^2.20.0",
     "react-dom": "^16.2.0",
-    "react-styleguidist": "^6.2.3",
+    "react-styleguidist": "^7.0.0",
     "simulant": "^0.2.2",
     "standard-version": "^4.3.0",
     "svg-url-loader": "^2.3.1",
