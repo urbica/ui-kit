@@ -73,3 +73,31 @@ const onChange = (value) => setState(value);
   Current value: {state.leftValue}, {state.rightValue}
 </div>
 ```
+
+RangeSlider with tick
+
+```js
+const options = [
+  { label: '1990 год', value: ['<=', 'year_of_built', 1990] },
+  { label: '2000 год', value: ['<=', 'year_of_built', 2000] },
+  { label: '2014 год', value: ['<=', 'year_of_built', 2014] }
+];
+
+initialState = {
+  leftValue: options[0].value,
+  rightValue: null
+};
+
+const onChange = (value) => setState(value);
+
+<div>
+  <RangeSlider
+    onChange={onChange}
+    fixedLeft
+    rightValue={state.rightValue}
+    options={options}
+    
+  />
+  Current value: {state.leftValue}, {state.rightValue}
+</div>
+```
