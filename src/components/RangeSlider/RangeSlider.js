@@ -23,7 +23,7 @@ class RangeSlider extends PureComponent {
     this._renderOption = this._renderOption.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { options, leftValue, rightValue } = this.props;
 
     if (options) {
@@ -122,13 +122,12 @@ class RangeSlider extends PureComponent {
     const visibleScale = (!ticks || ticks.length !== 0) && options;
 
     return [
-      visibleScale ? <Scale>{options.map(this._renderOption)}</Scale> : null,
-      <Container visibleScale={visibleScale}>
+      visibleScale ? <Scale key="scale">{options.map(this._renderOption)}</Scale> : null,
+      <Container key="input" visibleScale={visibleScale}>
         <InputRange
           onChange={this.onChangeLeft}
           value={fixedLeft ? 0 : leftValue}
           onClick={this.onChangeEnd}
-          onMouseLeave={this.onChangeEnd}
           onTouchEnd={this.onChangeEnd}
           min={left}
           max={right}

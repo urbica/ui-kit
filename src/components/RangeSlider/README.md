@@ -50,10 +50,10 @@ RangeSlider (options)
 
 ```js
 const options = [
-  { value: 'one', label: 'One' },
-  { value: 'two', label: 'Two' },
-  { value: 'three', label: 'Three' },
-  { value: 'four', label: 'Four' }
+  { value: ['one', 1], label: 'One' },
+  { value: ['two', 2], label: 'Two' },
+  { value: ['three', 3], label: 'Three' },
+  { value: ['four', 4], label: 'Four' }
 ];
 
 initialState = {
@@ -66,9 +66,10 @@ const onChange = (value) => setState(value);
 <div>
   <RangeSlider
     onChange={onChange}
-    leftValue={state.leftValue}
+    //leftValue={state.leftValue}
     rightValue={state.rightValue}
     options={options}
+    fixedLeft
   />
   Current value: {state.leftValue}, {state.rightValue}
 </div>
