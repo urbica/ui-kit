@@ -121,6 +121,9 @@ class RangeSlider extends PureComponent {
     const percentRight = ((right - rightValue) / range) * 100;
     const visibleScale = (!ticks || ticks.length !== 0) && options;
 
+    console.log(leftValue, rightValue);
+    console.log(percentLeft, percentRight);
+
     return [
       visibleScale ? <Scale key="scale">{options.map(this._renderOption)}</Scale> : null,
       <Container key="input" visibleScale={visibleScale}>
@@ -139,7 +142,6 @@ class RangeSlider extends PureComponent {
           onChange={this.onChangeRight}
           value={fixedRight ? 0 : rightValue}
           onClick={this.onChangeEnd}
-          onMouseLeave={this.onChangeEnd}
           onTouchEnd={this.onChangeEnd}
           min={left}
           max={right}
