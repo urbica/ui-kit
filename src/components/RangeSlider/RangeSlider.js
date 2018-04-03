@@ -33,6 +33,7 @@ class RangeSlider extends PureComponent {
 
       const leftIndex = leftValue ?
         findIndex(options, o => o.value === leftValue) : 0;
+      console.log(options, rightValue);
       const rightIndex = rightValue ?
         findIndex(options, o => o.value === rightValue) : options.length - 1;
 
