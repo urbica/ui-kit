@@ -46,7 +46,7 @@ const onChange = (value) => setState({ value });
 </div>
 ```
 
-Slider with ticks
+Slider and ticks
 
 ```js
 const options = [
