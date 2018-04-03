@@ -13,9 +13,6 @@ const changeMonth = ({ startDate, endDate }) => {
 
 const changeYear = (year) => setState({ year });
 
-console.log(state.startDate);
-console.log(state.endDate);
-
 <div>
   <YearPicker
     onChange={changeYear}

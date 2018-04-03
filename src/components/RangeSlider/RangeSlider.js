@@ -23,7 +23,7 @@ class RangeSlider extends PureComponent {
     this._renderOption = this._renderOption.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { options, leftValue, rightValue } = this.props;
 
     if (options) {
@@ -33,7 +33,6 @@ class RangeSlider extends PureComponent {
 
       const leftIndex = leftValue ?
         findIndex(options, o => o.value === leftValue) : 0;
-      console.log(options, rightValue);
       const rightIndex = rightValue ?
         findIndex(options, o => o.value === rightValue) : options.length - 1;
 
@@ -121,9 +120,6 @@ class RangeSlider extends PureComponent {
     const percentLeft = ((leftValue - left) / range) * 100;
     const percentRight = ((right - rightValue) / range) * 100;
     const visibleScale = (!ticks || ticks.length !== 0) && options;
-
-    console.log(leftValue, rightValue);
-    console.log(percentLeft, percentRight);
 
     return [
       visibleScale ? <Scale key="scale">{options.map(this._renderOption)}</Scale> : null,
