@@ -96,7 +96,6 @@ class RangeSlider extends PureComponent {
     const isVisible = !ticks || !!(index % ticks);
 
     const isActive = leftValue <= index && index <= rightValue;
-    console.log(leftValue, index, rightValue);
 
     return (
       <Label key={option.value}>
