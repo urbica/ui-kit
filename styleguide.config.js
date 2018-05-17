@@ -12,6 +12,7 @@ module.exports = {
       name: 'Components',
       components: () => [
         'src/components/Button/Button.js',
+        'src/components/InputRange/InputRange.js',
         'src/components/RadioButton/RadioButton.js',
         'src/components/RadioGroup/RadioGroup.js',
         'src/components/Slider/Slider.js',
