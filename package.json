@@ -4,8 +4,9 @@
   "description": "Urbica UI Kit",
   "author": "Stepan Kuzmin <stepan@urbica.co>",
   "contributors": [
-    "Stepan Kuzmin <stepan@urbica.co>",
-    "Artem Boyur <gboyur@gmail.com>"
+    "Andrey Bakhvalov <device25@gmail.com>",
+    "Artem Boyur <gboyur@gmail.com>",
+    "Stepan Kuzmin <stepan@urbica.co>"
   ],
   "repository": "git@github.com:urbica/ui-kit.git",
   "license": "MIT",
@@ -21,15 +22,13 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "styleguide:deploy": "gh-pages -m 'auto commit [ci skip]' -d styleguide",
-    "commit": "git-cz",
+    "cz": "git-cz",
     "release": "npm run build && standard-version",
     "prepublish": "npm run build",
     "postpublish": "npm run styleguide:build && npm run styleguide:deploy"
   },
   "jest": {
-    "setupFiles": [
-      "<rootDir>/jest.setup.js"
-    ],
+    "setupFiles": ["<rootDir>/jest.setup.js"],
     "moduleNameMapper": {
       "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js"
     }
@@ -40,45 +39,44 @@
     }
   },
   "dependencies": {
-    "recompose": "^0.26.0",
+    "recompose": "^0.27.0",
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.1",
-    "babel-jest": "^22.2.2",
-    "babel-loader": "^7.1.2",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.3",
+    "babel-loader": "^7.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
-    "codecov": "^3.0.0",
+    "codecov": "^3.0.2",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.1",
-    "eslint": "^4.17.0",
+    "enzyme-to-json": "^3.3.3",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-flowtype": "^2.43.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.6.1",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "eslint-plugin-react": "^7.8.2",
     "flow-bin": "^0.68.0",
     "flow-coverage-report": "^0.5.0",
     "gh-pages": "^1.1.0",
-    "jest": "^22.2.2",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-docgen": "^2.20.0",
-    "react-dom": "^16.2.0",
-    "react-styleguidist": "^6.2.3",
+    "jest": "^22.4.3",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-docgen": "^2.20.1",
+    "react-dom": "^16.3.2",
+    "react-styleguidist": "^7.0.14",
     "simulant": "^0.2.2",
     "standard-version": "^4.3.0",
-    "svg-url-loader": "^2.3.1",
-    "webpack": "^3.11.0",
-    "webpack-bundle-analyzer": "^2.10.0"
+    "svg-url-loader": "^2.3.2",
+    "webpack": "^4.8.3",
+    "webpack-cli": "2.1.3"
   }
 }

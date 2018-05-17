@@ -1,7 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   bail: true,
@@ -33,10 +31,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.svg/,
@@ -47,12 +42,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin('ui-kit.css'),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      openAnalyzer: false
-    })
-  ]
+  plugins: [new webpack.optimize.ModuleConcatenationPlugin()]
 };
