@@ -2,48 +2,48 @@
 
 exports[`Legend does not crash 1`] = `
 <div>
-  <Styled(div)>
-    <Styled(div)
+  <styled.div>
+    <styled.div
       color="#111111"
       key="1"
     />
-    <Styled(div)
+    <styled.div
       color="#333333"
       key="2"
     />
-    <Styled(div)
+    <styled.div
       color="#666666"
       key="3"
     />
-    <Styled(div)
+    <styled.div
       color="#999999"
       key="4"
     />
-  </Styled(div)>
-  <Styled(div)>
-    <Styled(div)
+  </styled.div>
+  <styled.div>
+    <styled.div
       key="1"
     >
       0
-    </Styled(div)>
-    <Styled(div)
+    </styled.div>
+    <styled.div
       key="2"
     >
       100
-    </Styled(div)>
-    <Styled(div)
+    </styled.div>
+    <styled.div
       key="3"
     >
       300
-    </Styled(div)>
-    <Styled(div)
+    </styled.div>
+    <styled.div
       key="4"
     >
       600
-    </Styled(div)>
-    <Styled(div)>
+    </styled.div>
+    <styled.div>
       900
-    </Styled(div)>
-  </Styled(div)>
+    </styled.div>
+  </styled.div>
 </div>
 `;

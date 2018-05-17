@@ -1,4 +1,4 @@
-import styled from 'react-emotion';
+import styled from 'styled-components';
 import arrow from './arrow.svg';
 
 export default styled.div`

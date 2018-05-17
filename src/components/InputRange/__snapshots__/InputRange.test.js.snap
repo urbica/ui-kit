@@ -1,8 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Slider does not crash 1`] = `
-<Styled(input)
+<styled.input
   onChange={[Function]}
+  theme={
+    Object {
+      "inputRange_thumbBorderColor": "#000",
+      "inputRange_thumbHeight": "28px",
+      "inputRange_thumbWidth": "28px",
+      "inputRange_trackColor": "#000",
+    }
+  }
   type="range"
 />
 `;

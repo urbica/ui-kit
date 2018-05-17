@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioGroup does not crash 1`] = `
-<Styled(div)>
-  <Styled(div)
+<styled.div>
+  <styled.div
     active={true}
     key=".0"
     onClick={[Function]}
     value={1}
   >
     Option 1
-  </Styled(div)>
-  <Styled(div)
+  </styled.div>
+  <styled.div
     active={false}
     key=".1"
     onClick={[Function]}
     value={2}
   >
     Option 2
-  </Styled(div)>
-</Styled(div)>
+  </styled.div>
+</styled.div>
 `;

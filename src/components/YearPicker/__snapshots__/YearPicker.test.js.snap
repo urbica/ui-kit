@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`YearPicker does not crash 1`] = `
-<Styled(div)>
-  <Styled(div)
+<styled.div>
+  <styled.div
     onClick={[Function]}
   />
   2017
-  <Styled(div)
+  <styled.div
     onClick={[Function]}
     right={true}
   />
-</Styled(div)>
+</styled.div>
 `;

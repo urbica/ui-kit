@@ -1,104 +1,118 @@
 import React from 'react';
-import styled from 'react-emotion';
+import styled from 'styled-components';
+
+import defaultTheme from './defaultTheme.json';
 
 const InputRange = styled.input`
   width: 100%;
   height: 34px;
-  margin: 0;
   padding: 0;
-  -webkit-appearance: none;
+  margin: 0;
+
   background: transparent;
-   
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+/* Focus styles */
+  &:focus {
+    outline: none;
+  }
   &::-moz-focus-outer {
     border: 0;
   }
 
+/* Track styles */
   &::-webkit-slider-runnable-track {
-      height: 2px;
-      background: #000000;
-      border: none;
-      border-radius: 1px;
-  }
-  
-  &::-webkit-slider-thumb {
-      position: relative;
-      -webkit-appearance: none;
-      height: 28px;
-      width: 28px;
-      background-color: #ffffff;
-      border: solid 2px #000000;
-      border-radius: 50%;
-      margin-top: -14px;
-      &:hover {
-        cursor: pointer;
-      }
-  }
-
-  // Firefox
-  &:focus {
-      outline: none;
-  }
-  
-  &::-moz-range-track {
     height: 2px;
-    background: #000000;
     border: none;
     border-radius: 1px;
-  }
 
-  &::-moz-range-thumb {
-      -webkit-appearance: none;
-      height: 28px;
-      width: 28px;
-      background-color: #ffffff;
-      border: solid 2px #000000;
-      border-radius: 50%;
-      margin-top: -14px;
-      &:hover {
-          cursor: pointer;
-        }
+    background-color: ${({ theme }) => theme.inputRange_trackColor};
   }
+  &::-moz-range-track {
+    height: 2px;
+    border: none;
+    border-radius: 1px;
 
-  // IE
-  
+    background-color: ${({ theme }) => theme.inputRange_trackColor};
+  }
   &::-ms-track {
-      height: 2px;
-      background: transparent;
-      border: none;
-      color: transparent;
+    height: 2px;
+    border: none;
+    border-radius: 1px;
+
+    background-color: ${({ theme }) => theme.inputRange_trackColor};
   }
-  
   &::-ms-fill-lower {
-      background: #000000;
+    background-color: ${({ theme }) => theme.inputRange_trackColor};
+  }
+  &::-ms-fill-upper {
+    background-color: ${({ theme }) => theme.inputRange_trackColor};
+  }
+  &:focus::-ms-fill-lower {
+    background-color: ${({ theme }) => theme.inputRange_trackColor};
+  }
+  &:focus::-ms-fill-upper {
+    background-color: ${({ theme }) => theme.inputRange_trackColor};
   }
 
-  &::-ms-fill-upper {
-      background: #000000;
+/* Thumb styles */
+  &::-webkit-slider-thumb {
+    width: ${({ theme }) => theme.inputRange_thumbWidth};
+    height: ${({ theme }) => theme.inputRange_thumbHeight};
+    border-style: solid;
+    border-width: 2px;
+    border-color: ${({ theme }) => theme.inputRange_thumbBorderColor};
+    border-radius: 50%;
+
+    transform: translateY(calc(-50% + 1px)); /* Thumb position fix */
+
+    background-color: #ffffff;
+    -webkit-appearance: none;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
-  
+  &::-moz-range-thumb {
+    width: ${({ theme }) => theme.inputRange_thumbWidth};
+    height: ${({ theme }) => theme.inputRange_thumbHeight};
+    border-style: solid;
+    border-width: 2px;
+    border-color: ${({ theme }) => theme.inputRange_thumbBorderColor};
+    border-radius: 50%;
+
+    background-color: #ffffff;
+    -moz-appearance: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
   &::-ms-thumb {
-      height: 28px;
-      width: 28px;
-      background-color: #ffffff;
-      border: solid 2px #000000;
-      border-radius: 50%;
-      &:hover {
-          cursor: pointer;
-        }
+    width: ${({ theme }) => theme.inputRange_thumbWidth};
+    height: ${({ theme }) => theme.inputRange_thumbHeight};
+    border-style: solid;
+    border-width: 2px;
+    border-color: ${({ theme }) => theme.inputRange_thumbBorderColor};
+    border-radius: 50%;
+
+    background-color: #ffffff;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
-  
-  &:focus::-ms-fill-lower {
-      background: #000000;
-  }
-  
-  &:focus::-ms-fill-upper {
-      background: #000000;
-  }
-  
+
   &::-ms-tooltip {
     display: none;
   }
 `;
+
+InputRange.defaultProps = {
+  theme: defaultTheme
+};
 
 /**
  * @component
