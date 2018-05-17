@@ -7,7 +7,7 @@
 ## Installation
 
 ```shell
-npm install --save @urbica/ui-kit
+npm install --save styled-components recompose @urbica/ui-kit
 ```
 
 ## Build
