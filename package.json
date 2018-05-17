@@ -1,6 +1,6 @@
 {
   "name": "@urbica/ui-kit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Urbica UI Kit",
   "author": "Stepan Kuzmin <stepan@urbica.co>",
   "contributors": [
@@ -28,7 +28,9 @@
     "postpublish": "npm run styleguide:build && npm run styleguide:deploy"
   },
   "jest": {
-    "setupFiles": ["<rootDir>/jest.setup.js"],
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
     "moduleNameMapper": {
       "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js"
     }
