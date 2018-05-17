@@ -18,7 +18,7 @@
     "typecheck:coverage": "flow-coverage-report -i 'src/**/*.js' -t html",
     "test": "jest",
     "test:coverage": "jest --coverage && codecov",
-    "build": "webpack -p --config webpack.config.js",
+    "build": "webpack-cli -p --config webpack.config.js",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "styleguide:deploy": "gh-pages -m 'auto commit [ci skip]' -d styleguide",
@@ -28,9 +28,7 @@
     "postpublish": "npm run styleguide:build && npm run styleguide:deploy"
   },
   "jest": {
-    "setupFiles": [
-      "<rootDir>/jest.setup.js"
-    ],
+    "setupFiles": ["<rootDir>/jest.setup.js"],
     "moduleNameMapper": {
       "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js"
     }
@@ -40,7 +38,7 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "dependencies": {
+  "peerDependencies": {
     "recompose": "^0.27.0",
     "styled-components": "^3.2.6"
   },

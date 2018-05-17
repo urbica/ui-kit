@@ -16,9 +16,11 @@ module.exports = {
     extensions: ['.js']
   },
   externals: {
-    react: 'react',
+    'prop-types': 'prop-types',
     'react-dom': 'react-dom',
-    'prop-types': 'prop-types'
+    'styled-components': 'styled-components',
+    react: 'react',
+    recompose: 'recompose'
   },
   module: {
     rules: [
