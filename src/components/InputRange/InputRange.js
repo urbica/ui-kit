@@ -14,7 +14,7 @@ const InputRange = styled.input`
   -webkit-appearance: none;
   -moz-appearance: none;
 
-${''/* Focus styles */}
+/* Focus styles */
   &:focus {
     outline: none;
   }
@@ -22,7 +22,7 @@ ${''/* Focus styles */}
     border: 0;
   }
 
-${''/* Track styles */}
+/* Track styles */
   &::-webkit-slider-runnable-track {
     height: 2px;
     border: none;
@@ -57,7 +57,7 @@ ${''/* Track styles */}
     background-color: ${({ theme }) => theme.inputRange_trackColor};
   }
 
-${''/* Thumb styles */}
+/* Thumb styles */
   &::-webkit-slider-thumb {
     width: ${({ theme }) => theme.inputRange_thumbWidth};
     height: ${({ theme }) => theme.inputRange_thumbHeight};
@@ -66,8 +66,7 @@ ${''/* Thumb styles */}
     border-color: ${({ theme }) => theme.inputRange_thumbBorderColor};
     border-radius: 50%;
 
-  ${''/* Thumb position fix */}
-    transform: translateY(calc(-50% + 1px));
+    transform: translateY(calc(-50% + 1px)); /* Thumb position fix */
 
     background-color: #ffffff;
     -webkit-appearance: none;
