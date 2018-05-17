@@ -1,34 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List does not crash 1`] = `
-<Styled(ul)>
-  <Styled(li)
+<styled.ul>
+  <styled.li
     highlight={false}
     key="one"
     onClick={[Function]}
   >
     One
-  </Styled(li)>
-  <Styled(li)
+  </styled.li>
+  <styled.li
     highlight={false}
     key="two"
     onClick={[Function]}
   >
     Two
-  </Styled(li)>
-  <Styled(li)
+  </styled.li>
+  <styled.li
     highlight={false}
     key="three"
     onClick={[Function]}
   >
     Three
-  </Styled(li)>
-  <Styled(li)
+  </styled.li>
+  <styled.li
     highlight={false}
     key="four"
     onClick={[Function]}
   >
     Four
-  </Styled(li)>
-</Styled(ul)>
+  </styled.li>
+</styled.ul>
 `;

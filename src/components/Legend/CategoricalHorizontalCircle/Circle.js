@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled from 'styled-components';
 
 const size = ({ number, length }) => {
   const value = ((20 / length) * number) + 20;
