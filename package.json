@@ -75,10 +75,10 @@
     "react-docgen": "^2.20.1",
     "react-dom": "^16.3.2",
     "react-styleguidist": "^7.0.14",
-    "recompose": "0.27.0",
+    "recompose": "^0.27.0",
     "simulant": "^0.2.2",
     "standard-version": "^4.3.0",
-    "styled-components": "3.2.6",
+    "styled-components": "^3.2.6",
     "svg-url-loader": "^2.3.2",
     "webpack": "^4.8.3",
     "webpack-cli": "2.1.3"
