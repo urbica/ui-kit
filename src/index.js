@@ -9,3 +9,4 @@ export { default as Dropdown } from './components/Dropdown';
 export { default as MonthPicker } from './components/MonthPicker';
 export { default as YearPicker } from './components/YearPicker';
 export { default as Legend } from './components/Legend';
+export { default as defaultTheme } from './defaultTheme';
