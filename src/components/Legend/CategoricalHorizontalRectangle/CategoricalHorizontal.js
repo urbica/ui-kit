@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // styled
 import Row from './Row';
-import Segment from './Segment';
+import Segment from '../styled/HorizontalRectangleSegment';
 import Label from './Label';
 
 /**
@@ -11,12 +11,7 @@ import Label from './Label';
  */
 
 const renderSegment = ({ id, color }) => <Segment key={id} color={color} />;
-
-const renderLabel = ({ id, label }) => (
-  <Label key={id}>
-    {label}
-  </Label>
-);
+const renderLabel = ({ id, label }) => <Label key={id}>{label}</Label>;
 
 const CategoricalHorizontal = ({ values }) => {
   if (!values.length) {
@@ -25,12 +20,8 @@ const CategoricalHorizontal = ({ values }) => {
 
   return (
     <div>
-      <Row>
-        { values.map(renderSegment) }
-      </Row>
-      <Row>
-        { values.map(renderLabel) }
-      </Row>
+      <Row>{values.map(renderSegment)}</Row>
+      <Row>{values.map(renderLabel)}</Row>
     </div>
   );
 };

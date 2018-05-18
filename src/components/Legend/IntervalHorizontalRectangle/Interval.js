@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Row from './Row';
-import Segment from './Segment';
+import Segment from '../styled/HorizontalRectangleSegment';
 import Label from './Label';
 import LastLabel from './LastLabel';
 
 const renderSegment = ({ id, color }) => <Segment key={id} color={color} />;
-
 const renderLabel = ({ id, label }) => <Label key={id}>{label}</Label>;
 
 const Interval = ({ values }) => {
