@@ -1,25 +1,41 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const Button = styled.div`
-  display: flex;
-  flex: 1;
+import defaultTheme from './defaultTheme.json';
+
+const Button = styled.button`
+  width: 100%;
   height: 40px;
-  border: 1px solid #303d41;
-  border-right: 0;
-  align-items: center;
-  justify-content: center;
-  
-  background-color: 'white';
-  color: #303d41;
-  
+  padding: 0;
+  border-width: ${({ theme }) => theme.button_borderWidth};
+  border-style: solid;
+  border-color: ${({ theme }) => theme.button_borderColor};
+  border-image: ${({ theme }) => theme.button_borderImage};
+
+  color: ${({ theme }) => theme.button_color};
+
+  background-color: ${({ theme }) => theme.button_backgroundColor};
+  background-image: ${({ theme }) => theme.button_backgroundImage};
+
   &:hover {
     cursor: pointer;
   }
-
-  &:last-child {
-    border-right: 1px solid #303d41;
-  }
 `;
+
+Button.propTypes = {
+  theme: PropTypes.shape({
+    button_borderWidth: PropTypes.string,
+    button_borderColor: PropTypes.string,
+    button_borderImage: PropTypes.string,
+    button_color: PropTypes.string,
+    button_backgroundColor: PropTypes.string,
+    button_backgroundImage: PropTypes.string
+  })
+};
+
+Button.defaultProps = {
+  theme: defaultTheme
+};
 
 /**
  * @component

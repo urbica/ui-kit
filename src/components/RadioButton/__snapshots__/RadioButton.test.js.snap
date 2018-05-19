@@ -1,10 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButton does not crash 1`] = `
-<styled.div
+<styled.button
   className="sc-bwzfXH goITcP"
+  theme={
+    Object {
+      "button_backgroundColor": "#fff",
+      "button_backgroundImage": "none",
+      "button_borderColor": "#303d41",
+      "button_borderImage": "none",
+      "button_borderWidth": "1px",
+      "button_color": "#303d41",
+    }
+  }
   value={true}
 >
   title
-</styled.div>
+</styled.button>
 `;
