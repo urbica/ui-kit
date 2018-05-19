@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button does not crash 1`] = `
-<div
-  className="sc-bdVaJa icTUIk"
+<button
+  className="sc-bdVaJa ldKojJ"
 >
   title
-</div>
+</button>
 `;
