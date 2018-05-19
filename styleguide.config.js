@@ -9,6 +9,10 @@ module.exports = {
       content: 'docs/installation.md'
     },
     {
+      name: 'Using themes',
+      content: 'docs/themes.md'
+    },
+    {
       name: 'Components',
       components: () => [
         'src/components/Button/Button.js',
