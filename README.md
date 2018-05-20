@@ -1,6 +1,6 @@
 # Urbica UI Kit
 
-[![Circle CI build status](https://circleci.com/gh/urbica/ui-kit.svg?style=shield)](https://circleci.com/gh/urbica/ui-kit/tree/master)
+[![Build Status](https://travis-ci.org/urbica/ui-kit.svg?branch=master)](https://travis-ci.org/urbica/ui-kit)
 [![Greenkeeper badge](https://badges.greenkeeper.io/urbica/ui-kit.svg)](https://greenkeeper.io/)
 
 ## Installation
