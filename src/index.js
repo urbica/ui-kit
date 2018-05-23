@@ -11,3 +11,4 @@ export { default as MonthRangePicker } from './components/MonthRangePicker';
 export { default as YearPicker } from './components/YearPicker';
 export { default as Legend } from './components/Legend';
 export { default as RangeSlider } from './components/RangeSlider';
+export { default as ClickOutside } from './components/ClickOutside';
