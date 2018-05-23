@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/urbica/ui-kit/compare/v0.4.0...v0.5.0) (2018-05-23)
+
+
+### Features
+
+* add ClickOutside to export ([#56](https://github.com/urbica/ui-kit/issues/56)) ([968a563](https://github.com/urbica/ui-kit/commit/968a563))
+* add theme support in Button ([#53](https://github.com/urbica/ui-kit/issues/53)) ([4fd581a](https://github.com/urbica/ui-kit/commit/4fd581a)), closes [#48](https://github.com/urbica/ui-kit/issues/48) [#52](https://github.com/urbica/ui-kit/issues/52)
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/urbica/ui-kit/compare/v0.3.1...v0.4.0) (2018-05-18)
 
