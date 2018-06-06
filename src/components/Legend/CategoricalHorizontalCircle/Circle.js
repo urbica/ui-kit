@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const size = ({ number, length }) => {
-  const value = ((20 / length) * number) + 20;
+const size = ({ index, segmentsAmount, circleSize }) => {
+  if (circleSize) return circleSize;
+
+  const value = ((20 / segmentsAmount) * index) + 20;
+
   return value % 2 ? value + 1 : value;
 };
 
@@ -27,9 +30,10 @@ const Circle = styled.div`
 `;
 
 Circle.propTypes = {
-  number: PropTypes.number.isRequired,
-  length: PropTypes.number.isRequired,
-  color: PropTypes.string.isRequired
+  index: PropTypes.number.isRequired,
+  segmentsAmount: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
+  circleSize: PropTypes.number
 };
 
 export default Circle;

@@ -15,7 +15,7 @@ const renderLabel = ({ id, label }) => (
     {label}
   </Label>);
 
-const CategoricalCircleProportional = ({ values }) => {
+const CategoricalCircleProportional = ({ values, circleSize }) => {
   if (!values.length) {
     throw new Error('values is empty');
   }
@@ -23,19 +23,18 @@ const CategoricalCircleProportional = ({ values }) => {
   return (
     <div>
       <Row>
-        {
-          values.map(({ id, color }, i) => (
-            <Circle
-              key={id}
-              color={color}
-              number={i}
-              length={values.length}
-            />
-          ))
-        }
+        {values.map(({ id, color }, i) => (
+          <Circle
+            key={id}
+            color={color}
+            index={i}
+            segmentsAmount={values.length}
+            circleSize={circleSize}
+          />
+        ))}
       </Row>
       <Row>
-        { values.map(renderLabel) }
+        {values.map(renderLabel)}
       </Row>
     </div>
   );
@@ -46,7 +45,12 @@ CategoricalCircleProportional.propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     color: PropTypes.string,
     label: PropTypes.node
-  })).isRequired
+  })).isRequired,
+  circleSize: PropTypes.number
+};
+
+CategoricalCircleProportional.defaultProps = {
+  circleSize: undefined
 };
 
 export default CategoricalCircleProportional;
