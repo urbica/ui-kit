@@ -13,9 +13,10 @@ import Label from './Label';
 const renderLabel = ({ id, label }) => (
   <Label key={id}>
     {label}
-  </Label>);
+  </Label>
+);
 
-const CategoricalCircleProportional = ({ values, circleSize }) => {
+const CategoricalCircleProportional = ({ values, circleSize, proportional }) => {
   if (!values.length) {
     throw new Error('values is empty');
   }
@@ -30,6 +31,7 @@ const CategoricalCircleProportional = ({ values, circleSize }) => {
             index={i}
             segmentsAmount={values.length}
             circleSize={circleSize}
+            proportional={proportional}
           />
         ))}
       </Row>
@@ -46,11 +48,13 @@ CategoricalCircleProportional.propTypes = {
     color: PropTypes.string,
     label: PropTypes.node
   })).isRequired,
-  circleSize: PropTypes.number
+  circleSize: PropTypes.number,
+  proportional: PropTypes.bool
 };
 
 CategoricalCircleProportional.defaultProps = {
-  circleSize: undefined
+  circleSize: 20,
+  proportional: true
 };
 
 export default CategoricalCircleProportional;
