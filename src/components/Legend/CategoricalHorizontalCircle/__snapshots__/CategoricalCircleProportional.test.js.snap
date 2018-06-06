@@ -4,34 +4,44 @@ exports[`Legend does not crash 1`] = `
 <div>
   <styled.div>
     <styled.div
+      circleSize={20}
       color="#111111"
+      index={0}
       key="1"
-      length={5}
-      number={0}
+      proportional={true}
+      segmentsAmount={5}
     />
     <styled.div
+      circleSize={20}
       color="#333333"
+      index={1}
       key="2"
-      length={5}
-      number={1}
+      proportional={true}
+      segmentsAmount={5}
     />
     <styled.div
+      circleSize={20}
       color="#666666"
+      index={2}
       key="3"
-      length={5}
-      number={2}
+      proportional={true}
+      segmentsAmount={5}
     />
     <styled.div
+      circleSize={20}
       color="#999999"
+      index={3}
       key="4"
-      length={5}
-      number={3}
+      proportional={true}
+      segmentsAmount={5}
     />
     <styled.div
+      circleSize={20}
       color="#AAAAAA"
+      index={4}
       key="5"
-      length={5}
-      number={4}
+      proportional={true}
+      segmentsAmount={5}
     />
   </styled.div>
   <styled.div>
