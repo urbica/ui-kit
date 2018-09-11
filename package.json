@@ -74,7 +74,7 @@
     "react": "^16.3.2",
     "react-docgen": "^2.20.1",
     "react-dom": "^16.3.2",
-    "react-styleguidist": "^7.0.14",
+    "react-styleguidist": "7.3.6",
     "recompose": "^0.27.1",
     "simulant": "^0.2.2",
     "standard-version": "^4.4.0",
