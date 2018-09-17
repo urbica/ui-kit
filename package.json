@@ -78,7 +78,7 @@
     "recompose": "^0.27.1",
     "simulant": "^0.2.2",
     "standard-version": "^4.4.0",
-    "styled-components": "^3.2.6",
+    "styled-components": "^3.4.7",
     "svg-url-loader": "^2.3.2",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3"
