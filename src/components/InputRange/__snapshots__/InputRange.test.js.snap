@@ -5,7 +5,10 @@ exports[`Slider does not crash 1`] = `
   onChange={[Function]}
   theme={
     Object {
+      "inputRange_thumbBackgroundColor": "#FFF",
       "inputRange_thumbBorderColor": "#000",
+      "inputRange_thumbBorderRadius": "50%",
+      "inputRange_thumbBorderWidth": "2px",
       "inputRange_thumbHeight": "28px",
       "inputRange_thumbWidth": "28px",
       "inputRange_trackColor": "#000",

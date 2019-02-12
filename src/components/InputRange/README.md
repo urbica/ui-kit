@@ -26,7 +26,10 @@ const theme = {
   inputRange_thumbBorderColor: 'red',
   inputRange_thumbWidth: '18px',
   inputRange_thumbHeight: '18px',
-  inputRange_trackColor: 'blue'
+  inputRange_trackColor: 'blue',
+  inputRange_thumbBorderRadius: '50%',
+  inputRange_thumbBackgroundColor: '#fff',
+  inputRange_thumbBorderWidth: '2px'
 };
 const onChange = (event) => {
   setState({ value: event.target.value })

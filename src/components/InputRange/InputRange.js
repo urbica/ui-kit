@@ -62,13 +62,13 @@ const InputRange = styled.input`
     width: ${({ theme }) => theme.inputRange_thumbWidth};
     height: ${({ theme }) => theme.inputRange_thumbHeight};
     border-style: solid;
-    border-width: 2px;
+    border-width: ${({ theme }) => theme.inputRange_thumbBorderWidth};
     border-color: ${({ theme }) => theme.inputRange_thumbBorderColor};
-    border-radius: 50%;
+    border-radius: ${({ theme }) => theme.inputRange_thumbBorderRadius};
 
     transform: translateY(calc(-50% + 1px)); /* Thumb position fix */
 
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.inputRange_thumbBackgroundColor};
     -webkit-appearance: none;
 
     &:hover {
@@ -79,11 +79,11 @@ const InputRange = styled.input`
     width: ${({ theme }) => theme.inputRange_thumbWidth};
     height: ${({ theme }) => theme.inputRange_thumbHeight};
     border-style: solid;
-    border-width: 2px;
+    border-width: ${({ theme }) => theme.inputRange_thumbBorderWidth};
     border-color: ${({ theme }) => theme.inputRange_thumbBorderColor};
-    border-radius: 50%;
+    border-radius: ${({ theme }) => theme.inputRange_thumbBorderRadius};
 
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.inputRange_thumbBackgroundColor};
     -moz-appearance: none;
 
     &:hover {
@@ -94,11 +94,11 @@ const InputRange = styled.input`
     width: ${({ theme }) => theme.inputRange_thumbWidth};
     height: ${({ theme }) => theme.inputRange_thumbHeight};
     border-style: solid;
-    border-width: 2px;
+    border-width: ${({ theme }) => theme.inputRange_thumbBorderWidth};
     border-color: ${({ theme }) => theme.inputRange_thumbBorderColor};
-    border-radius: 50%;
+    border-radius: ${({ theme }) => theme.inputRange_thumbBorderRadius};
 
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.inputRange_thumbBackgroundColor};
 
     &:hover {
       cursor: pointer;
